@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'tops/index'
+  root 'tops#index'
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'log_out', to: 'sessions#destroy', as: 'log_out'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :sessions, only: %i[create destroy]
+
 end
