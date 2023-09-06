@@ -83,6 +83,8 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cssbundling-rails (1.2.0)
+      railties (>= 6.0.0)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -92,6 +94,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -107,6 +110,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     jwt (2.7.1)
     loofah (2.21.3)
       crass (~> 1.0.2)
@@ -258,9 +263,12 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  cssbundling-rails
   debug
+  foreman
   importmap-rails
   jbuilder
+  jsbundling-rails
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)
