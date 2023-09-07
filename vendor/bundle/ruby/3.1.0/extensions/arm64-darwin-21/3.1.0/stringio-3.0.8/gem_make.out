@@ -1,5 +1,5 @@
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/stringio-3.0.8/ext/stringio
-/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230906-27212-qu5fpn.rb extconf.rb
+/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230907-77185-jn5lm6.rb extconf.rb
 creating Makefile
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/stringio-3.0.8/ext/stringio
@@ -12,4 +12,4 @@ linking shared-object stringio.bundle
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/stringio-3.0.8/ext/stringio
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 stringio.bundle ./.gem.20230906-27212-786oa7
+/usr/bin/install -c -m 0755 stringio.bundle ./.gem.20230907-77185-u7o0vv

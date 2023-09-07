@@ -1,5 +1,5 @@
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.9/ext/nio4r
-/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230906-27212-tu3tc7.rb extconf.rb
+/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230907-77185-7nnoa.rb extconf.rb
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for linux/io_uring.h... no
@@ -374,4 +374,4 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.9/ext/nio4r
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20230906-27212-q76s1e
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20230907-77185-zw9dr9
