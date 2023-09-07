@@ -29,6 +29,7 @@ gem "tailwindcss-rails"
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'foreman'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
@@ -78,4 +79,9 @@ end
 
 #login
   gem 'omniauth-google-oauth2'
+  
   gem 'omniauth-rails_csrf_protection'
+
+#Rspec
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
