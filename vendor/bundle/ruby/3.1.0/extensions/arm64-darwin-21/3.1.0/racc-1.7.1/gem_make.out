@@ -1,5 +1,5 @@
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/racc-1.7.1/ext/racc/cparse
-/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230907-77185-ho02pi.rb extconf.rb
+/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230906-27212-31p37u.rb extconf.rb
 checking for rb_block_call()... yes
 checking for rb_ary_subseq()... yes
 creating Makefile
@@ -14,4 +14,4 @@ linking shared-object racc/cparse.bundle
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/racc-1.7.1/ext/racc/cparse
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20230907-77185-lma77l/racc
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20230906-27212-e832ya/racc

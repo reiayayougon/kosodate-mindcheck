@@ -1,5 +1,5 @@
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
-/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230907-77185-rlihb9.rb extconf.rb
+/Users/ishidaayako/.rbenv/versions/3.1.2/bin/ruby -I /Users/ishidaayako/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20230906-27212-cvi5zm.rb extconf.rb
 creating Makefile
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
@@ -12,4 +12,4 @@ linking shared-object bootsnap/bootsnap.bundle
 
 current directory: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20230907-77185-dmuhev/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20230906-27212-2hzaw1/bootsnap
