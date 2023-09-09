@@ -1,0 +1,126 @@
+<div>
+    <%= link_to posts_path, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800" do %>
+        戻る
+    <% end %>
+</div>
+
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <!-- Card -->
+    <div class="flex flex-col">
+        <div class="-m-1.5 overflow-x-auto">
+            <div class="p-1.5 min-w-full inline-block align-middle">
+                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-slate-800">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left">
+                                    <div class="flex items-center gap-x-2">
+                                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            ステータス
+                                        </span>
+                                    </div>
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left">
+                                    <div class="flex items-center gap-x-2">
+                                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            名前
+                                        </span>
+                                    </div>
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left">
+                                    <div class="flex items-center gap-x-2">
+                                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            投稿
+                                        </span>
+                                    </div>
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left">
+                                    <div class="flex items-center gap-x-2">
+                                        <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            カテゴリー
+                                        </span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+							<tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800">
+								<td class="h-px w-px whitespace-nowrap">
+									<a class="block h-full p-6">
+										<div class="flex items-center gap-x-4">
+											<div>
+												<% if @post.user.status > 50 %>
+													<div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+														<div class="flex flex-col justify-center overflow-hidden bg-blue-500  text-xs text-white text-center" role="progressbar" style="width: <%= @post.user.status %>%; min-width: 10%;" aria-valuenow="<%= @post.user.status %>" aria-valuemin="0" aria-valuemax="100">
+														</div>
+													</div>
+													<div class="ml-2"><%= @post.user.status %>%</div>
+												<% elsif @post.user.status > 30 %>
+													<div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+														<div class="flex flex-col justify-center overflow-hidden bg-yellow text-xs text-white text-center" role="progressbar" style="width: <%= @post.user.status %>%; min-width: 10%;" aria-valuenow="<%= @post.user.status %>" aria-valuemin="0" aria-valuemax="100">
+														</div>
+													</div>
+													<div class="ml-2"><%= @post.user.status %>%</div>
+												<% else %>
+													<div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+														<div class="flex flex-col justify-center overflow-hidden bg-red text-xs text-white text-center" role="progressbar" style="width: <%= @post.user.status %>%; min-width: 10%;" aria-valuenow="<%= @post.user.status %>" aria-valuemin="0" aria-valuemax="100">
+														</div>
+													</div>
+													<div class="ml-2"><%= @post.user.status %>%</div>
+												<% end %>
+												
+											</div>
+										</div>
+									</a>
+								</td>
+								<td class="h-px w-px whitespace-nowrap">
+									<%= link_to user_path(@post.user), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+										<%# <div class="flex items-center gap-x-3">  %>
+											<% if @post.user.avatar.present? %>
+												<%= image_tag @post.user.avatar.url, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full"%>
+											<% elsif @post.user.image.present? %> 
+												<%= image_tag @post.user.image, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full" %>
+											<% else %>
+												<span class="inline-block h-[2.375rem] w-[2.375rem] bg-gray-100 rounded-full overflow-hidden">
+													<svg class="h-full w-full text-gray-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"/>
+														<path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"/>
+														<path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"/>
+													</svg>
+												</span>
+											<% end %>
+											<div class="grow">
+												<span class="block text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @post.user.name %></span>
+											</div>
+										</div>
+									<% end %>
+								</td>
+								<td class="h-px w-72 min-w-[18rem]">
+										<span class="block text-sm text-gray-500"><%= @post.content %></span>
+										<span class="text-sm text-gray-600 dark:text-gray-400"></span>
+									</a>
+								</td>
+							
+								<td class="h-px w-px whitespace-nowrap">
+									<%= link_to category_posts_path(category_id: @post.category.id), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+										<span class="<%= translation_class_name(@post.category.name) %> inline-flex items-center gap-1.5 py-2 px-2 rounded-full text-xs font-medium bg-green-100 text-black-800 dark:bg-green-900 dark:text-green-200" style="color: black;">
+											<%= @post.category.name %>
+										</span>
+									<% end %>
+								</td>
+							</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>	
+	<%= render 'comments/form', { post: @post, comment: @comment } %>
+	<%= render 'comments/comments', { comments: @comments } %> 
+
+

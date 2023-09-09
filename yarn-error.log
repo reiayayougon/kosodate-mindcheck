@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn install
+  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn build --watch
 
 PATH: 
-  /opt/homebrew/opt/mysql@5.7/bin:/Users/ishidaayako/.pyenv/shims:/usr/local/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin
+  /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/bin:/Users/ishidaayako/.rbenv/versions/3.1.2/bin:/opt/homebrew/Cellar/rbenv/1.2.0/libexec:/opt/homebrew/opt/mysql@5.7/bin:/Users/ishidaayako/.pyenv/shims:/usr/local/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.22.19
@@ -14,7 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  SyntaxError: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/package.json: Unexpected token } in JSON at position 546
+  SyntaxError: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/package.json: Unexpected token / in JSON at position 548
       at JSON.parse (<anonymous>)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
@@ -38,6 +38,8 @@ npm manifest:
     "scripts": {
       "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
       "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
+      // "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+      // "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
     },
     "browserslist": [
       "defaults"
