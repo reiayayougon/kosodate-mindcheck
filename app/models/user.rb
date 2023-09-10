@@ -5,6 +5,8 @@ class User < ApplicationRecord
     validates :name, presence: true
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
+    has_many :comments, dependent: :destroy
+
     validates :status, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
     
 

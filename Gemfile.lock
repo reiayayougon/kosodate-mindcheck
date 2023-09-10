@@ -106,9 +106,6 @@ GEM
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.2.1)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.8.1)
       rdoc
@@ -270,10 +267,6 @@ GEM
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
-    tailwindcss-rails (2.0.30-arm64-darwin)
-      railties (>= 6.0.0)
-    tailwindcss-rails (2.0.30-x86_64-linux)
-      railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -311,7 +304,6 @@ DEPENDENCIES
   debug
   factory_bot_rails
   foreman
-  importmap-rails
   jbuilder
   jsbundling-rails
   kaminari
@@ -326,7 +318,6 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
-  tailwindcss-rails
   turbo-rails
   tzinfo-data
   web-console

@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn build --watch
+  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn add @fortawesome/fontawesome-free @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-iconsn
 
 PATH: 
-  /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/vendor/bundle/ruby/3.1.0/bin:/Users/ishidaayako/.rbenv/versions/3.1.2/bin:/opt/homebrew/Cellar/rbenv/1.2.0/libexec:/opt/homebrew/opt/mysql@5.7/bin:/Users/ishidaayako/.pyenv/shims:/usr/local/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+  /opt/homebrew/opt/mysql@5.7/bin:/Users/ishidaayako/.pyenv/shims:/usr/local/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin
 
 Yarn version: 
   1.22.19
@@ -14,18 +14,24 @@ Platform:
   darwin arm64
 
 Trace: 
-  SyntaxError: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/package.json: Unexpected token / in JSON at position 548
-      at JSON.parse (<anonymous>)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:1629:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/@fortawesome%2ffree-solid-svg-iconsn: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   {
     "name": "app",
     "private": "true",
     "dependencies": {
+      "@fortawesome/fontawesome-free": "^6.4.2",
       "autoprefixer": "^10.4.15",
       "esbuild": "^0.19.2",
       "install": "^0.13.0",
@@ -38,8 +44,8 @@ npm manifest:
     "scripts": {
       "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
       "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
-      // "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
-      // "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
+      "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
+      "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
     },
     "browserslist": [
       "defaults"
@@ -168,6 +174,11 @@ Lockfile:
     version "0.19.2"
     resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.2.tgz#1205014625790c7ff0e471644a878a65d1e34ab0"
     integrity sha512-tcuhV7ncXBqbt/Ybf0IyrMcwVOAPDckMK9rXNHtF17UTK18OKLpg08glminN06pt2WCoALhXdLfSPbVvK/6fxw==
+  
+  "@fortawesome/fontawesome-free@^6.4.2":
+    version "6.4.2"
+    resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz#36b6a9cb5ffbecdf89815c94d0c0ffa489ac5ecb"
+    integrity sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg==
   
   "@jridgewell/gen-mapping@^0.3.2":
     version "0.3.3"
