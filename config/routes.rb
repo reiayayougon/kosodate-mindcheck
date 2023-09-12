@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :posts do
-    resources :comments, only: %i[create update destroy], shallow: true
+    resources :comments, only: %i[create edit update destroy], shallow: true
     collection do
       get 'search'
       get 'category/:category_id', action: :category, as: :category
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
     resource :likes, only: %i[create destroy]
     
   end
+  resources :comments, only: [:destroy]
 end
