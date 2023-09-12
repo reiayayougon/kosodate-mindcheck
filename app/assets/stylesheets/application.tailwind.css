@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './categories.css';
+
+/*カテゴリー*/
+.eat{
+    background-color: #db8787;
+}
+    
+.school{
+    background-color: #e4eb9f;
+}
+
+.mother_in_law{
+    background-color: #cd7eae;
+}
+
+.sickness {
+    background-color: cadetblue;
+}
+
+.wife-husband {
+    background-color: rgb(120, 162, 229);
+}
+
+.friend {
+    background-color: rgb(232, 169, 125);
+}
+
+.baby {
+    background-color: rgb(178, 236, 119);
+}
+
+.infant {
+    background-color: #a553e4;
+}
+
+.child {
+    background-color: rgb(140, 149, 149);
+}
+
+.youth {
+    background-color: rgb(236, 191, 132);
+}
+
+.money {
+    background-color: #ece525;
+}
+
+.others {
+    background-color: rgb(230, 110, 110);
+}

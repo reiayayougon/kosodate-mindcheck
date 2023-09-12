@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn remove bootstrap
+  /Users/ishidaayako/.nodebrew/node/v16.16.0/bin/node /usr/local/bin/yarn add @fortawesome/fontawesome-free @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-solid-svg-iconsn
 
 PATH: 
   /opt/homebrew/opt/mysql@5.7/bin:/Users/ishidaayako/.pyenv/shims:/usr/local/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.nodebrew/current/bin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ishidaayako/.rbenv/shims:/Users/ishidaayako/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin
@@ -14,35 +14,36 @@ Platform:
   darwin arm64
 
 Trace: 
-  SyntaxError: /Users/ishidaayako/workspace/runteq/kosodate-mindcheck/package.json: Unexpected token / in JSON at position 64
-      at JSON.parse (<anonymous>)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:1629:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+  Error: https://registry.yarnpkg.com/@fortawesome%2ffree-solid-svg-iconsn: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   {
     "name": "app",
     "private": "true",
     "dependencies": {
-      // "@popperjs/core": "^2.11.8",
+      "@fortawesome/fontawesome-free": "^6.4.2",
       "autoprefixer": "^10.4.15",
-      // "bootstrap": "^5.3.1",
-      // "bootstrap-icons": "^1.10.5",
       "esbuild": "^0.19.2",
-      // "install": "^0.13.0",
-      // "nodemon": "^3.0.1",
+      "install": "^0.13.0",
+      "nodemon": "^3.0.1",
       "postcss": "^8.4.29",
-      // "postcss-cli": "^10.1.0",
+      "postcss-cli": "^10.1.0",
       "preline": "^1.9.0",
-      // "sass": "^1.66.1",
       "tailwindcss": "^3.3.3"
     },
     "scripts": {
-      "build:css": "yarn build:css:compile && yarn build:css:prefix",
+      "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
       "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
-      "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
       "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
       "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
     },
@@ -174,6 +175,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.2.tgz#1205014625790c7ff0e471644a878a65d1e34ab0"
     integrity sha512-tcuhV7ncXBqbt/Ybf0IyrMcwVOAPDckMK9rXNHtF17UTK18OKLpg08glminN06pt2WCoALhXdLfSPbVvK/6fxw==
   
+  "@fortawesome/fontawesome-free@^6.4.2":
+    version "6.4.2"
+    resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz#36b6a9cb5ffbecdf89815c94d0c0ffa489ac5ecb"
+    integrity sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg==
+  
   "@jridgewell/gen-mapping@^0.3.2":
     version "0.3.3"
     resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
@@ -227,7 +233,7 @@ Lockfile:
       "@nodelib/fs.scandir" "2.1.5"
       fastq "^1.6.0"
   
-  "@popperjs/core@^2.11.2", "@popperjs/core@^2.11.8":
+  "@popperjs/core@^2.11.2":
     version "2.11.8"
     resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.8.tgz#6b79032e760a0899cd4204710beede972a3a185f"
     integrity sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==
@@ -289,16 +295,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
     integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
   
-  bootstrap-icons@^1.10.5:
-    version "1.10.5"
-    resolved "https://registry.yarnpkg.com/bootstrap-icons/-/bootstrap-icons-1.10.5.tgz#5a1bbb1bb2212397d416587db1d422cc9501847c"
-    integrity sha512-oSX26F37V7QV7NCE53PPEL45d7EGXmBgHG3pDpZvcRaKVzWMqIRL9wcqJUyEha1esFtM3NJzvmxFXDxjJYD0jQ==
-  
-  bootstrap@^5.3.1:
-    version "5.3.1"
-    resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.1.tgz#8ca07040ad15d7f75891d1504cf14c5dedfb1cfe"
-    integrity sha512-jzwza3Yagduci2x0rr9MeFSORjcHpt0lRZukZPZQJT1Dth5qzV7XcgGqYzi39KGAVYR8QEDVoO0ubFKOxzMG+g==
-  
   brace-expansion@^1.1.7:
     version "1.1.11"
     resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -334,7 +330,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001527.tgz#813826554828245ccee776c850566dce12bdeaba"
     integrity sha512-YkJi7RwPgWtXVSgK4lG9AHH57nSzvvOp9MesgXmw4Q7n0C3H04L0foHqfxcmSAm5AcWb8dW9AYj2tR7/5GnddQ==
   
-  "chokidar@>=3.0.0 <4.0.0", chokidar@^3.3.0, chokidar@^3.5.2, chokidar@^3.5.3:
+  chokidar@^3.3.0, chokidar@^3.5.2, chokidar@^3.5.3:
     version "3.5.3"
     resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
     integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -584,11 +580,6 @@ Lockfile:
     version "5.2.4"
     resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
     integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
-  
-  immutable@^4.0.0:
-    version "4.3.4"
-    resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.3.4.tgz#2e07b33837b4bb7662f288c244d1ced1ef65a78f"
-    integrity sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==
   
   inflight@^1.0.4:
     version "1.0.6"
@@ -945,15 +936,6 @@ Lockfile:
     dependencies:
       queue-microtask "^1.2.2"
   
-  sass@^1.66.1:
-    version "1.66.1"
-    resolved "https://registry.yarnpkg.com/sass/-/sass-1.66.1.tgz#04b51c4671e4650aa393740e66a4e58b44d055b1"
-    integrity sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==
-    dependencies:
-      chokidar ">=3.0.0 <4.0.0"
-      immutable "^4.0.0"
-      source-map-js ">=0.6.2 <2.0.0"
-  
   semver@^7.5.3:
     version "7.5.4"
     resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
@@ -978,7 +960,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/slash/-/slash-5.1.0.tgz#be3adddcdf09ac38eebe8dcdc7b1a57a75b095ce"
     integrity sha512-ZA6oR3T/pEyuqwMgAKT0/hAv8oAXckzbkmR0UkUosQ+Mc4RxGoJkRmwHgHufaenlyAgE1Mxgpdcrf75y6XcnDg==
   
-  "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
+  source-map-js@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
     integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==

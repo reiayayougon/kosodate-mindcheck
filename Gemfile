@@ -25,7 +25,7 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
+# gem "tailwindcss-rails"
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'foreman'
@@ -85,3 +85,9 @@ end
 #Rspec
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+
+#search
+gem 'ransack'
+gem 'kaminari'
+
+gem "debug", require: false
