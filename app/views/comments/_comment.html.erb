@@ -1,6 +1,6 @@
-<%= turbo_frame_tag dom_id(@comment) do %>
+
     <tbody> 
-        <tr id="comment-<%= comment.id%>" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr id="<%= dom_id comment%>" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <td class="h-px w-px whitespace-nowrap">
                 <a class="block h-full p-6">
                     <div class="flex items-center gap-x-4">
@@ -10,7 +10,7 @@
                                     <div class="flex flex-col justify-center overflow-hidden bg-blue-500  text-xs text-white text-center" role="progressbar" style="width: <%= comment.user.status %>%; min-width: 10%;" aria-valuenow="<%= comment.user.status %>" aria-valuemin="0" aria-valuemax="100">
                                     </div>
                                 </div>
-                                <div class="ml-2"><%= comment.user.status %>%</div>
+                                <div class="ml-2"><%= comment.user.status %></div>
                             <% elsif comment.user.status > 30 %>
                                 <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
                                     <div class="flex flex-col justify-center overflow-hidden bg-yellow text-xs text-white text-center" role="progressbar" style="width: <%= comment.user.status %>%; min-width: 10%;" aria-valuenow="<%= comment.user.status %>" aria-valuemin="0" aria-valuemax="100">
@@ -51,7 +51,7 @@
                     </div>
                 <% end %>
             </td>
-
+        
             <td scope="col" class="px-6 py-3 text-left">
                 <div id="js-comment-<%= comment.id %>" class="flex items-center gap-x-2"> 
                     <span class="dark:text-gray-200">
@@ -59,23 +59,26 @@
                     </span> 
                 </div>
             </td> 
-
+        
             <td class="h-px w-px whitespace-nowrap">
                 <% if current_user.own?(comment) %>
                     <ul class="list-inline justify-content-center">
                         <li class="list-inline-item">
-                            <%= link_to edit_comment_path(comment) do %>
-                                <i class="fa-solid fa-pen"></i>
-                            <% end %>
+                            <button class="edit-comment-link" data-turbo-frame="comment-form-frame" data-action="click->comments#editComment">編集</button>
+                            <turbo-frame id="comment-form-frame"></turbo-frame>
+                            <%# <%= link_to edit_comment_path(comment), data: { turbo_frame: "modal" } do %>
+                                <%# <i class="fa-solid fa-pen"></i> 
+                            <% end %> 
                         </li>
 
                             
                         <li class="list-inline-item">
- 
+
                             <%= button_to comment_path(comment),
                                 class: 'js-delete-comment-button', 
                                 id: "button-delete-#{comment.id}", 
-                                method: :delete do %>
+                                method: :delete,
+                                form: { data: { turbo_confirm: "本当に削除しますか？" }} do %>
                             
                                     <i class="fa-solid fa-trash"></i>
                             <% end %>
@@ -86,6 +89,5 @@
             </td>
         </tr> 
     </tbody>
-<% end %>
 
     

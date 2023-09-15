@@ -1,12 +1,14 @@
-<%= turbo_frame_tag @comment do %>
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto"> 
-        <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <table id="js-table-comment" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <% comments.each do |comment| %>
-                    <%= render 'comments/comment', comment: comment %>
-                <% end %>
-            </table>
-        </div>
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto"> 
+    <div class="table border-collapse table-auto w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table id="comment" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <% comments.each do |comment| %>
+            
+                <%= render 'comments/comment', comment: comment %>
+            
+            <% end %>       
+        </table>
     </div>
-<% end %>
+</div>
+
+
 

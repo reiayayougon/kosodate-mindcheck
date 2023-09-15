@@ -16,7 +16,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+# gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
@@ -34,7 +34,7 @@ gem 'foreman'
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -90,6 +90,10 @@ end
 gem 'ransack'
 gem 'kaminari'
 
+#image
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+
+
 gem "debug", require: false
 
-gem 'hotwire-rails'

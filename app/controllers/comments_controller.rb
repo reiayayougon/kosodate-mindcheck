@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    before_action :find_commentable, only: %i[create edit]
+    before_action :find_commentable, only: %i[create ]
     before_action :find_comment, only: %i[edit update destroy]
 
     def new
@@ -8,60 +8,44 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @commentable.comments.build(comment_params)
-        respond_to do |format|
-            if @comment.save
-                #複数の箇所を同時に更新するためにturbo_stream
-                format.turbo_stream { flash.now[:success] = "コメント作成しました" }
-                format.html { redirect_to @comment.post, flash: { success: 'コメントしました' } }
-            else
-                format.turbo_stream do
-                    flash.now[:danger] = "コメント作成失敗しました"
-                    render turbo_stream: [
-                        turbo_stream.replace("flash_messages", partial: "shared/flash_messages"),
-                    ]
-                end
-                format.html { redirect_to @comment.post, 
-                                flash: { danger: 'コメント作成に失敗しました' } }
-            end
+        if @comment.save
+            flash.now[:success] = "コメント作成しました"
+        else
+            flash.now[:danger] = "コメントを作成できませんでした"
+            redirect_to request.referer
+            
         end
+        
     end
         
-    def edit;end
+    def edit
+        
+    end
 
     def update
-        respond_to do |format|
-            if @comment.update(comment_params)
-                format.turbo_stream  { flash.now[:success] = "コメントを更新しました" }
-                format.html { redirect_to @comment.post, flash: { success: 'コメントを更新しました' } }
-            else
-                format.turbo_stream do
-                    flash.now[:warning] = 'コメントを更新に失敗しました'
-                    render turbo_stream: [
-                        turbo_stream.replace("flash_messages", partial: "shared/flash_messages"),
-                    ]
-                end
-                format.html { redirect_to @comment.post, 
-                            flash: { danger: 'コメントを更新しました' } }
-            end
+        if @comment.update(comment_params)
+            redirect_to @comment.post, notice: 'コメントを更新しました'
+            # redirect_to posts_show_path, success: 'コメントを更新しました'
+        else 
+            # flash.now['danger'] = 'コメントを更新できませんでした'
+            render :edit, status: :unprocessable_entity
         end
     end
 
     def destroy
-        respond_to do |format|
-            if @comment.destroy
-                format.turbo_stream { flash.now[:success] = 'コメントを削除しました' }
-                format.html { redirect_to @comment.post,
-                                flash: { success: 'コメント削除しました' } }
-            else
-                format.turbo_stream do
-                    flash.now[:danger] = 'コメントの削除に失敗しました'
-                    render turbo_stream: [
-                        turbo_stream.replace("flash_messages", partial: "shared/flash_messages"),
-                    ]
-                end
-                format.html { redirect_to @comment.post, flash: { danger: 'コメントの削除に失敗しました' } }
-            end
-        end
+        @comment.destroy
+        flash.now.notice = 'コメントを削除しました'
+            #     format.turbo_stream { flash.now[:success] = 'コメントを削除しました' }
+            #     format.html { redirect_to @comment.post,
+            #                     flash: { success: 'コメント削除しました' } }
+            # else
+            #     format.turbo_stream do
+            #         flash.now[:danger] = 'コメントの削除に失敗しました'
+            #         render turbo_stream: [
+            #             turbo_stream.replace("flash_message", partial: "shared/flash_message"),
+            #         ]
+            #     end
+            #     format.html { redirect_to @comment.post, flash: { danger: 'コメントの削除に失敗しました' } }
     end
     private
 
@@ -80,8 +64,11 @@ class CommentsController < ApplicationController
         nil
     end
 
+    # def find_comment
+    #     @comment = current_user.comments.includes(:post).find(params[:id])
+    # end
     def find_comment
-        @comment = current_user.comments.find(params[:id])
+        @comment = Comment.includes(:post).find(params[:id])
     end
-
+    
 end
