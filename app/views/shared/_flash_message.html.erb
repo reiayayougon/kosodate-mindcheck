@@ -1,4 +1,13 @@
-
-<% flash.each do |message_type, message| %>
-    <div class="bg-blue-100 border border-blue-500 text-blue-700 px-4 py-3 rounded<%= message_type %>"><%= message %></div>
-<% end %>
+<div class="fixed top-0 left-0 right-0 flex items-center justify-center pointer-events-none">
+    <% flash.each do |type, message| %>
+        <div class="sm:w-1/2 <%= flash_class(type) %> py-4 px-6">
+            <span class="block sm:inline"><%= message %></span>
+            <span class="absolute top-0 right-0 px-4 py-3">
+                <svg class="fill-current h-6 w-6 <%= flash_close_icon_color(type) %>" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <title>閉じる</title>
+                    <path d="M14.293 5.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 11-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.293a1 1 0 111.414-1.414L10 8.586l4.293-4.293z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                </svg>
+            </span>
+        </div>
+    <% end %>
+</div>

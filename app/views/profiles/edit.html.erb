@@ -1,0 +1,32 @@
+<div class="flex items-center justify-center h-screen">
+    <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <h5 class="text-xl font-medium text-gray-900 dark:text-white">プロフィール</h5>
+        <%= form_with model: @user, url: profile_path, local: true do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+                <div class="form-group">
+                    <%= f.label :name, '名前', class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                    <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :introduction, '自己紹介' ,class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                    <%= f.text_area :introduction, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
+                </div>
+                <div data-controller="preview">
+                    <div class="form-group">
+                        <%= f.label :avatar, '画像' %>
+                        <%= f.file_field :avatar, data: {"preview-target": "file", action: "preview#previewImage" } %>
+                        <% if @user.avatar.attached? %>
+                            <%= image_tag @user.avatar.url, "data-preview-target": "image", size: '200x200' %>
+                        <% else %>
+                            <%= image_tag "sample.jpg", "data-preview-target": "image" %>
+                        <% end %>
+                    </div>
+                
+                    <div class="flex justify-center">
+                        <%= f.submit '更新', class: "bg-gray-600 hover:bg-gray-500 text-white rounded px-4 py-2"%>
+                    </div>  
+                </div>
+            
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <%= link_to request.referer, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800" do %>
+        戻る
+    <% end %>
+</div>
+<div class="flex items-center justify-center h-screen">
+    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex flex-col items-center py-10 "> 
+            <p>プロフィール</p>
+            <%= image_tag @user.avatar.url, class: 'rounded', size: '200x200' %>
+            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @user.name%></h5>
+            <%= @user.introduction %>
+            <div class="flex mt-4 space-x-3 md:mt-6">
+                <% if current_user == @user %>
+                    <%= link_to '編集', edit_profile_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

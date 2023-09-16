@@ -3,14 +3,15 @@
   <head>
     <title>KosodateMindcheck</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-visit-control" content="reload">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
+    <%# <%= turbo_include_tags %> 
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -21,7 +22,9 @@
         <%= render 'shared/before_login_header' %>
       <% end %>
       <%= render 'shared/flash_message' %>
-      <%= yield %>
+    
+        <%= yield %>
+    
       <%= render 'shared/footer' %>
     </body>
 </html>

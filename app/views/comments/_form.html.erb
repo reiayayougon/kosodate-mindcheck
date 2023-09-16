@@ -1,5 +1,6 @@
-<%# <%= turbo_frame_tag @comment do %>  
-    <%= form_with model: [post, comment], id: "#{dom_id(comment)}_form" do |form| %>
+
+<%= form_with model: [post, comment] do |form| %>
+    <turbo-frame id="comment-form-frame">
         <% comment.errors.full_messages.each do |message| %>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <%= message %>
@@ -12,15 +13,16 @@
                 <%= form.text_area :content, id: 'js-new-comment-body', rows: 3, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400", placeholder: "コメント入力" %>
             </div>
             <div class="w-2/4 flex items-center justify-center mt-5">
-                <button type="submit" class="py-4 px-10 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-600 text-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">投稿</button>
+                <%= form.submit "投稿", class: "py-4 px-10 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-600 text-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" %>
                 <div style="margin-left: 10px;"></div>
-                <%= link_to  @comment.post, class: 'py-4 px-10 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">投稿</button>' do %>
+                <%= link_to  @comment.post, class: 'py-4 px-10 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800' do %>
                     キャンセル
                 <% end %>
             </div>
         </div>
-    <% end %>
-<%# <% end %>   
+    </turbo-frame>
+<% end %>
+
 
 
 
