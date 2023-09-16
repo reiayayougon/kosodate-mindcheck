@@ -9,3 +9,14 @@ category_names = ["保育園・幼稚園", "食事", "病気・怪我", "義理�
 category_names.each do |name|
     category = Category.find_or_create_by(name: name)
 end
+
+20.times do |index|
+    post = Post.new(
+        user: User.offset(rand(User.count)).first,
+        content: "本文#{index}",
+    )
+    
+    random_category = Category.offset(rand(Category.count)).first
+    post.category = random_category
+    post.save!
+end

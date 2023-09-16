@@ -3,13 +3,16 @@ class ProfilesController < ApplicationController
 
     def show;end
 
-    def edit;end
+    def edit
+    end
 
     def update
         if @user.update(user_params)
-            redirect_to profile_path, success: '更新しました'
+            redirect_to profile_path
+            flash[:success] = 'プロフィールを更新しました'
+            
         else
-            flash.now['danger'] = '更新できませんでした'
+            flash.now[:danger] = '更新できませんでした'
             render :edit
         end
     end

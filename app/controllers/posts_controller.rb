@@ -38,16 +38,19 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path, success: '更新しました'
+      flash[:success] = '投稿を更新しました'
+      redirect_to posts_path
     else
-      flash.now['danger'] = "更新に失敗しました"
+      flash.now[:danger] = "更新に失敗しました"
       render :edit
     end
   end
 
   def destroy
     @post.destroy!
-    redirect_to posts_path, success: "削除しました"
+    flash.now[:danger] = "投稿を削除しました"
+    
+                      
   end
   
   def likes

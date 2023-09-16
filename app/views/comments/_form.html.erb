@@ -1,5 +1,6 @@
 
-    <%= form_with model: [post, comment] do |form| %>
+<%= form_with model: [post, comment] do |form| %>
+    <turbo-frame id="comment-form-frame">
         <% comment.errors.full_messages.each do |message| %>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <%= message %>
@@ -19,7 +20,8 @@
                 <% end %>
             </div>
         </div>
-    <% end %>
+    </turbo-frame>
+<% end %>
 
 
 

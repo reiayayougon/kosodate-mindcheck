@@ -64,12 +64,11 @@
                 <% if current_user.own?(comment) %>
                     <ul class="list-inline justify-content-center">
                         <li class="list-inline-item">
-                            <button class="edit-comment-link" data-turbo-frame="comment-form-frame" data-action="click->comments#editComment">編集</button>
-                            <turbo-frame id="comment-form-frame"></turbo-frame>
-                            <%# <%= link_to edit_comment_path(comment), data: { turbo_frame: "modal" } do %>
-                                <%# <i class="fa-solid fa-pen"></i> 
-                            <% end %> 
+                            <%= link_to edit_comment_path(comment) do %>
+                                <i class="fa-solid fa-pen"></i> 
+                            <% end %>
                         </li>
+                
 
                             
                         <li class="list-inline-item">
