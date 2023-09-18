@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'questions/new'
+  get 'questions/create'
+  get 'questions/edit'
   get 'users/show'
   get 'categories/new'
   get 'categories/create'
@@ -27,10 +30,8 @@ Rails.application.routes.draw do
       get 'search'
       get 'category/:category_id', action: :category, as: :category
     end
-    
-    
   end
-  
+  resources :questions
   resources :comments
   resources :posts
 end
