@@ -1,10 +1,10 @@
-<%= link_to post_likes_path(post_id: post.id),
-            id: "js-like-button-for-post-#{post.id}",  
-            method: :post,
-            # class: "block text-sm text-black-500",
-            remote: true do %>
-    <div class="flex items-center">
-        <i class="fa-regular fa-face-meh-blank custom-icon" style="color: #adafb3;"></i>
-        <span class="like-count"><%= post.likes.count %></span>
-    </div>
+<%= turbo_frame_tag 'like_count' do %>
+    <%= link_to post_like_path(post_id: post.id),
+                data: { turbo_method: :post } do %>
+                <%# # class: "block text-sm text-black-500"%>
+        <div class="flex items-center">
+            <i class="fa-regular fa-face-meh-blank custom-icon" style="color: #adafb3;"></i>
+            <span class="like-count"><%= post.likes.count %></span>
+        </div>
+    <% end %>
 <% end %>

@@ -65,7 +65,9 @@
                 </div>
 
                 <div class="flex items-center">
+                    
                     <%= render 'like_button', post: post %>
+                
                     <%= link_to post_path(post), class: "comment-icon" do %>
                         <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
                         <span class="comment-count" style="color: black;"><%= post.comments.count %>
@@ -84,4 +86,4 @@
             <%# </a> %>
         </td>
     </tr>
-
+</div>
