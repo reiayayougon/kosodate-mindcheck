@@ -11,6 +11,9 @@ module.exports = {
         sans: ['Graphik', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
       }
+    },
+    container: {
+      center: true,
     }
   },
   plugins: [

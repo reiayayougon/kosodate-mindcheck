@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.font{
+    font-family: 'Zen Maru Gothic';
+}
 
 /*カテゴリー*/
 .eat{
