@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 
+
 /*カテゴリー*/
 .eat{
     background-color: #db8787;
@@ -50,4 +51,23 @@
 
 .others {
     background-color: rgb(230, 110, 110);
+}
+
+/*TOPスタートボタン*/
+.box1{
+    width:300px;
+    height:300px;
+    background:rgb(220, 222, 107);
+    border-radius:50%;
+    box-shadow: 0 15px 0 rgb(186, 188, 95);
+    font-size: 30px;
+    font-family: 'Zen Maru Gothic';
+    border: none;
+    line-height: 1.5;
+}
+
+.box1:active {
+    box-shadow: none;
+    transform: translateY(5px);
+    background:rgb(212, 213, 160);
 }

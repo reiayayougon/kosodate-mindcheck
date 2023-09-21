@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'answers/create'
   get 'questions/new'
   get 'questions/create'
   get 'questions/edit'
@@ -31,7 +32,10 @@ Rails.application.routes.draw do
       get 'category/:category_id', action: :category, as: :category
     end
   end
-  resources :questions
+  resources :questions, only: %i[index new create show] do
+    get 'random', on: :collection, to: 'questions#random'
+    resources :answers, only: %i[create]
+  end
   resources :comments
   resources :posts
 end

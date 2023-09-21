@@ -1,0 +1,16 @@
+<%# <% if @answered_count >= 10 %>
+    <%# <meta http-equiv="refresh" content="3;url=<%= question_path %>
+<%# <% else %>  
+    <h1>質問</h1>
+    <div data-controller="question">
+        <p data-question-target="content"><%= @question.content %></p>
+        <%= form_with model: @answer, url: question_answers_path(@question), method: :post do |f| %>
+            <%= f.hidden_field :answer_select, value: "yes" %>
+            <%= f.submit "YES" , data: { action: "click->question#fetchRandomQuestion" }%>
+        <% end %>
+        <%= form_with model: @answer, url: question_answers_path(@question), method: :post do |f| %>
+            <%= f.hidden_field :answer_select, value: "no" %>
+            <%= f.submit "NO", data: { action: "click->question#fetchRandomQuestion" } %>
+        <% end %>
+    </div>
+<%# <% end %> 

@@ -1,0 +1,6 @@
+class Answer < ApplicationRecord
+  belongs_to :user
+  belongs_to :question
+
+  enum answer_select: { yes: 0, no: 1 }
+end
