@@ -25,6 +25,12 @@ class QuestionsController < ApplicationController
     session.delete(:question_history)
     puts "回答数: #{session[:answered_count]}" 
     puts "質問履歴: #{question_history.inspect}"
+    @user = current_user
+        current_user.calculate_status
+        @user_answer_counts = @user.answers.where(answer_select: "yes")
+                                        .joins(question: :category)
+                                        .group("categories.name")
+                                        .count
   end
 
 

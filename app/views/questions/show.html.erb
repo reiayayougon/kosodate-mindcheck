@@ -1,1 +1,48 @@
-<p>結果</p>
+<div class="md:container md:mx-auto mt-8">
+    <% if @user.status <= 0 %>
+        <%= link_to '#', class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800"%>
+    <% end %>
+</div>
+    
+    <div class="border bg-slate-100 border-gray-300 p-8 rounded-lg">
+        <%=image_tag 'result.png', class: "ml-6", style: "width: 300px; height: 300px;"%>
+        <div class="flex flex-wrap justify-between items-center">
+            <div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
+                <h1 class="text-xl font-semibold mb-2 font">マインドステータス</h1>
+                <div class="flex items-center gap-x-3"> 
+                    <% if @user.avatar.present? %>
+                        <%= image_tag @user.avatar.url, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full"%>
+                    <% elsif @user.image.present? %> 
+                        <%= image_tag @user.image, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full" %>
+                    <% else %>
+                        <span class="inline-block h-[2.375rem] w-[2.375rem] bg-gray-100 rounded-full overflow-hidden">
+                            <svg class="h-full w-full text-gray-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"/>
+                                <path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"/>
+                                <path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                    <% end %>
+                    <div class="grow">
+                        <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @user.name %></span>
+                    </div>
+                </div>
+        
+                <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+                    <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
+                        <%= @user.status >= 0 ? @user.status : 0 %>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 relative">
+                <div class="border bg-white border-gray-300 p-4 rounded-lg relative" >
+                    <h1 class="text-xl font-semibold mb-2 font">悩みカテゴリ</h1>
+                        <%= pie_chart @user_answer_counts, id: "users-chart", width: "400px", height: "400px", colors: ["#4682A9", "#F6F4EB", "#749BC2", "#91C8E4", "#9EB384", "#CEDEBD", "#9EB384", "#EEE2DE"], label: "悩んだ数" %> 
+                    <% if @user.has_yes? %>
+                        <%= image_tag 'yes.png', style: "width: 200px; height: 200px; margin-top: 20px;", class: "absolute right-0 bottom-0" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

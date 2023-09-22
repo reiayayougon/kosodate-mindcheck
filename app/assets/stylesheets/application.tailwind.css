@@ -73,3 +73,7 @@
     transform: translateY(5px);
     background:rgb(212, 213, 160);
 }
+
+.pie-chart-container {
+    background-color: #f1f5f9; 
+}

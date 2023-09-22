@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :liked_posts, through: :likes, source: :post
     has_many :comments, dependent: :destroy
     has_many :questions, dependent: :destroy
+    has_many :answers, dependent: :destroy
     
     mount_uploader :avatar, AvatarUploader
     
@@ -46,6 +47,24 @@ class User < ApplicationRecord
 
     def like?(post)
         liked_posts.include?(post)
+    end
+
+    def reset_status
+        self.update(status_reset_at: Time.now)
+    end
+
+    def calculate_status
+        if status_reset_at.nil?
+            self.status = 100 - answers.yes_count
+        else
+            reset_answers = answers.where('created_at >= ?', status_reset_at)
+            self.status = 100 - reset_answers.yes_count
+        end  
+        save
+    end
+
+    def has_yes?
+        self.answers.exists?(answer_select: "yes")
     end
 
 end
