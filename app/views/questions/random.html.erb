@@ -1,0 +1,19 @@
+<div class="flex items-center justify-center h-screen">
+    <div class="text-center border border-gray-300 rounded-lg p-4">
+        <h1 class="text-2xl md:text-4xl lg:text-5xl font">質問</h1>
+        <div data-controller="question" class="p-4" >
+            <p data-question-target="content" class="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-white mb-4 font"><%= @question.content %></p>
+            <div class="flex items-center justify-center space-x-4">
+                <%= form_with model: @answer, url: question_answers_path(@question), method: :post do |f| %>
+                    <%= f.hidden_field :answer_select, value: "yes" %>
+                    <%= f.submit "YES" , data: { action: "click->question#fetchRandomQuestion" }, class: "py-3 px-4 gap-4 mr-4 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800"%>
+                <% end %>
+                <div class="w-4"></div> 
+                <%= form_with model: @answer, url: question_answers_path(@question), method: :post do |f| %>
+                    <%= f.hidden_field :answer_select, value: "no" %>
+                    <%= f.submit "NO", data: { action: "click->question#fetchRandomQuestion" }, class: "py-3 px-4 gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

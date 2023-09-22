@@ -15,3 +15,6 @@ application.register("hello", HelloController)
 
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
+
+import QuestionController from "./question_controller"
+application.register("question", QuestionController)

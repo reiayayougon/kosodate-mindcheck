@@ -1,11 +1,26 @@
 class LikesController < ApplicationController
+    before_action :set_post, only: [:create, :destroy]
+
     def create
-        @post = Post.find params[:post_id]
         current_user.like(@post)
+        respond_to do |format|
+            format.turbo_stream
+        end
     end
 
+    
+
     def destroy
-        @post = current_user.likes.find_by(params[:id]).post
         current_user.unlike(@post)
+        respond_to do |format|
+            format.turbo_stream
+        end
     end
+    
+    private
+
+    def set_post
+        @post = Post.find(params[:post_id])
+    end
+    
 end

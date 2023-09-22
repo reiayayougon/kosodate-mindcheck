@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'answers/create'
+  get 'questions/new'
+  get 'questions/create'
+  get 'questions/edit'
   get 'users/show'
   get 'categories/new'
   get 'categories/create'
@@ -21,13 +25,16 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :posts do
+    resource :like, only: [:create, :destroy]
     resources :comments, only: %i[create edit update destroy], shallow: true
     collection do
       get 'search'
       get 'category/:category_id', action: :category, as: :category
     end
-    resource :likes, only: %i[create destroy]
-    
+  end
+  resources :questions, only: %i[index new create show] do
+    get 'random', on: :collection, to: 'questions#random'
+    resources :answers, only: %i[create]
   end
   resources :comments
   resources :posts
