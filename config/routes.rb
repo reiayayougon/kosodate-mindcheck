@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'albams/index'
   get 'answers/create'
   get 'questions/new'
   get 'questions/create'
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
     get 'random', on: :collection, to: 'questions#random'
     resources :answers, only: %i[create]
   end
+  resources :albams, only: %i[index]
   resources :comments
   resources :posts
 end

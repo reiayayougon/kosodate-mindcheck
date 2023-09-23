@@ -1,0 +1,2 @@
+module AlbamsHelper
+end

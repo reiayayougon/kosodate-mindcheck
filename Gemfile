@@ -95,7 +95,9 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'chartkick'
 gem 'highcharts-rails'
-
+gem 'cloudinary'
 
 gem "debug", require: false
 
+#環境変数
+gem 'dotenv-rails'
