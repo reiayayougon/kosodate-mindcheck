@@ -1,8 +1,8 @@
 
-<%= form_with model: @question, local: true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>   
+<%= form_with model: @question, local: true, data: { turbo: false } do |f| %>
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="mx-auto max-w-2xl">
+            <%= render 'shared/error_messages', object: f.object %>
             <div class="text-center">
                 <div class="flex items-center justify-center">
                     <h2 class="text-xl text-gray-800 font-bold sm:text-3xl dark:text-white font">

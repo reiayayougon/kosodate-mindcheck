@@ -9,14 +9,20 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @commentable.comments.build(comment_params)
-        if @comment.save
-            flash.now[:success] = "コメント作成しました"
-        else
-            flash.now[:danger] = "コメントを作成できませんでした"
-            redirect_to request.referer
-            
+        respond_to do |format|
+            if @comment.save
+                format.turbo_stream { flash.now[:success] = 'コメントを作成しました' }
+                format.html { redirect_to @comment.post,
+                                flash: { success: 'コメントを作成しました' } }
+            else
+                format.turbo_stream do
+                flash.now[:danger] = 'コメントを作成できませんでした'
+                render render_flash_messages
+                end
+                format.html { redirect_to @comment.commentable,
+                            flash: { danger:  'コメントを作成できませんでした' } }
+            end
         end
-        
     end
         
     def edit
@@ -25,17 +31,17 @@ class CommentsController < ApplicationController
 
     def update
         if @comment.update(comment_params)
-            flash[:success] = 'コメントを更新しました'
             redirect_to @comment.post
         else 
-            flash.now['danger'] = 'コメントを更新できませんでした'
             render :edit
         end
     end
 
+    
+
     def destroy
         @comment.destroy!
-        flash.now.notice = 'コメントを削除しました'    
+        flash.now[:success] = 'コメントを削除しました'    
     end
 
     private

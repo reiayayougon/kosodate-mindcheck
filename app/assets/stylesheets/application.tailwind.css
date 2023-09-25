@@ -77,3 +77,7 @@
 .pie-chart-container {
     background-color: #f1f5f9; 
 }
+
+.hidden {
+    display: none;
+}

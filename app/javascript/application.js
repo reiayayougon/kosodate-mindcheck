@@ -10,3 +10,4 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import '@fortawesome/fontawesome-free'
 library.add(fas, far, fab)
 import 'chartkick/highcharts'
+
