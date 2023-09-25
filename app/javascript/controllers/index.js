@@ -7,9 +7,6 @@ import { application } from "./application"
 import ClearCommentController from "./clear_comment_controller"
 application.register("clear-comment", ClearCommentController)
 
-import CommentEditController from "./comment_edit_controller"
-application.register("comment-edit", CommentEditController)
-
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 
