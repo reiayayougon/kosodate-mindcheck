@@ -10,11 +10,11 @@ application.register("clear-comment", ClearCommentController)
 import CommentEditController from "./comment_edit_controller"
 application.register("comment-edit", CommentEditController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 
 import QuestionController from "./question_controller"
 application.register("question", QuestionController)
+
+import RemovalsController from "./removals_controller"
+application.register("removals", RemovalsController)

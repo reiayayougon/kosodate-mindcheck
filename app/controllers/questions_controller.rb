@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
       redirect_to new_question_path
       flash[:success] = "質問を作成しました"
     else
-      flash.now['danger'] = "質問作成に失敗しました"
+      flash.now[:error] = "質問作成に失敗しました"
       render new_question_path
       
     end
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to new_question_path, success: '質問を変更しました'
     else
-      flash.now['danger'] = "質問作成に失敗しました"
+      flash.now[:error] = "質問作成に失敗しました"
       render new_question_path
     end
   end
@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
     if session[:question_history].size > 10
       session[:question_history].shift(session[:question_history].size - 10)
     end
-    session[:question_history] ||= [] # セッション履歴が存在しない場合に初期化
+    session[:question_history] ||= [] #セッション履歴が存在しない場合に初期化
 
     question_history = session[:question_history]
     puts "Session ID: #{session.id}"

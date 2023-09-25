@@ -15,16 +15,31 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      category_id = params[:post][:category_id]
-      category = Category.find(category_id)
-        @post.category = category
-
-      redirect_to posts_path, success: "作成しました"
+    category_id = params[:post][:category_id]
+    category = Category.find(category_id)
+    @post.category = category
+    
+      redirect_to posts_path, success: '投稿を作成しました'
     else
-      flash.now['danger'] = "作成に失敗しました"
-      render :new
+      flash.now[:error] = "作成に失敗しました"
+      render :new, status: :unprocessable_entity
     end
   end
+
+  # def create
+  #   @post = current_user.posts.build(post_params)
+  #   category_id = params[:post][:category_id]
+  #   category = Category.find(category_id)
+  #   @post.category = category
+  #   if @post.save
+  #     respond_to do |format|
+  #       format.html { redirect_to posts_path, flash: { success: 'コメントを作成しました' } }
+  #       format.turbo_stream 
+  #     end
+  #   else
+  #     render new
+  #   end
+  # end
 
   def show
     @post = Post.find(params[:id])
@@ -42,13 +57,13 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       flash.now[:danger] = "更新に失敗しました"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy!
-    flash.now[:danger] = "投稿を削除しました"
+    flash.now[:success] = "投稿を削除しました"
     
                       
   end

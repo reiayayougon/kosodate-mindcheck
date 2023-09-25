@@ -1,7 +1,7 @@
 <div class="flex items-center justify-center h-screen">
     <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">プロフィール</h5>
-        <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <%= form_with model: @user, url: profile_path, local: true, data: { turbo: false } do |f| %>
             <%= render "shared/error_messages", object: f.object %>
                 <div class="form-group">
                     <%= f.label :name, '名前', class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
