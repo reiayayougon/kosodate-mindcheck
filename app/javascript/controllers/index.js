@@ -7,6 +7,9 @@ import { application } from "./application"
 import ClearCommentController from "./clear_comment_controller"
 application.register("clear-comment", ClearCommentController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 
@@ -15,3 +18,6 @@ application.register("question", QuestionController)
 
 import RemovalsController from "./removals_controller"
 application.register("removals", RemovalsController)
+
+import SliderController from "./slider_controller"
+application.register("slider", SliderController)

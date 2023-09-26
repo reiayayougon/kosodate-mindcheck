@@ -1,11 +1,10 @@
 class TopsController < ApplicationController
-  skip_before_action :check_logged_in, only: :index
+    skip_before_action :check_logged_in, only: %i[index]
     before_action :set_user, only: %i[index]
 
     def index
-
         if logged_in? && @user.status == 0 
-            redirect_to categories_index_path, success: 'ステータスを回復しました'
+            redirect_to albams_path, success: 'ステータスを回復しました'
         end
     end
     

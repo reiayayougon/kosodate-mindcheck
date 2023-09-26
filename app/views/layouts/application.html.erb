@@ -13,7 +13,9 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%# <%= turbo_include_tags %> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+
   </head>
 
   <body class="hold-transition sidebar-mini layout-fixed">
@@ -27,7 +29,7 @@
         <%= render 'shared/flash_message' %>
       </div>
         <%= yield %>
-    
       <%= render 'shared/footer' %>
+      <%= turbo_frame_tag "modal" %>
     </body>
 </html>
