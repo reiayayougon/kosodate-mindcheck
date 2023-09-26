@@ -12,15 +12,17 @@ class CommentsController < ApplicationController
         respond_to do |format|
             if @comment.save
                 format.turbo_stream { flash.now[:success] = 'コメントを作成しました' }
-                format.html { redirect_to @comment.post,
-                                flash: { success: 'コメントを作成しました' } }
+                format.html do 
+                  redirect_to @comment.post,
+                                flash: { success: 'コメントを作成しました' } end
             else
                 format.turbo_stream do
                 flash.now[:danger] = 'コメントを作成できませんでした'
                 render render_flash_messages
                 end
-                format.html { redirect_to @comment.commentable,
-                            flash: { danger:  'コメントを作成できませんでした' } }
+                format.html do 
+                  redirect_to @comment.commentable,
+                            flash: { danger:  'コメントを作成できませんでした' } end
             end
         end
     end
