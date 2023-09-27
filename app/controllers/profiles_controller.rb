@@ -3,8 +3,7 @@ class ProfilesController < ApplicationController
 
     def show;end
 
-    def edit
-    end
+    def edit;end
 
     def update
         if @user.update(user_params)
@@ -19,6 +18,7 @@ class ProfilesController < ApplicationController
 
     private
     
+
     def set_user
         @user = User.find(current_user.id)
     end
