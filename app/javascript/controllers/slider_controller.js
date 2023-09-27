@@ -18,11 +18,11 @@ export default class extends Controller {
                     clickable: true,
                 },
                 navigation: {
-                    nextEl: null,
-                    prevEl: null,
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
                 autoplay: {
-                    delay: 2000, 
+                    delay: 5000, 
                     disableOnInteraction: false, //ユーザーがスライダーに触れても自動再生を無効にしない
                 },
             });
