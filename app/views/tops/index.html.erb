@@ -1,5 +1,5 @@
-<% if logged_in? %>
-    <div class="flex justify-center items-center h-screen">
+<div class="flex justify-center items-center min-h-screen">
+    <% if logged_in? %>
         <div data-controller="question">
             <%=link_to random_questions_path, class: "box1 inline-flex justify-center items-center font-semibold text-white focus:outline-none focus:ring-3 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" do %>
                 子育てマインド<br>チェック開始
@@ -7,43 +7,43 @@
             <div data-question-target="container">
             </div>
         </div>
-    </div>
-<% else %>
-    <div data-controller="modal" class="text-center">
-        <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
-            <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
-                <div class="modal-content">
-                    <div data-controller="slider">
-                        <div class="swiper" data-slider-target="container">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav1.png" %>
+    <% else %>
+        <div data-controller="modal" class="text-center">
+            <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
+                <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
+                    <div class="modal-content">
+                        <div data-controller="slider">
+                            <div class="swiper" data-slider-target="container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav1.png" %>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav2.png" %>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav3.png" %>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav4.png" %>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav5.png" %>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <%=image_tag "nav6.png" %>
+                                    </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav2.png" %>
-                                </div>
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav3.png" %>
-                                </div>
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav4.png" %>
-                                </div>
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav5.png" %>
-                                </div>
-                                <div class="swiper-slide">
-                                    <%=image_tag "nav6.png" %>
-                                </div>
+                                <div class="swiper-pagination" data-slider-target="pagination"></div>
+                                <div class="swiper-button-next" data-slider-target="prev"></div> 
+                                <div class="swiper-button-prev" data-slider-target="next"></div> 
                             </div>
-                            <div class="swiper-pagination" data-slider-target="pagination"></div>
-                            <div class="swiper-button-next" data-slider-target="prev"></div> 
-                            <div class="swiper-button-prev" data-slider-target="next"></div> 
                         </div>
+                        <button data-action="click->modal#hide" data-turbo-frame="modal" ><i class="fa-solid fa-xmark"></i></button>
                     </div>
-                    <button data-action="click->modal#hide" data-turbo-frame="modal" ><i class="fa-solid fa-xmark"></i></button>
+                    
                 </div>
-                
-            </div>
-        </div> 
-    </div>
-<% end %>
+            </div> 
+        </div>
+    <% end %>
+</div>
