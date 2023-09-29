@@ -43,7 +43,8 @@ questions = [
     { content: "子供が勉強しない..", category_name: "その他" },
     { content: "普通食が始まり子供が自分で食べれるように横で見守ってるようにしているが、口に運べるのは１割、９割床...てかご飯で遊んでるーー..", category_name: "幼児期初期〜後期" },
     { content: "子供の教育費をどのように計画せればいいのかわからない", category_name: "お金" },
-    { content: "寝返りできそうな頃、うつ伏せで窒息していないか心配。常に生存確認なので熟睡できず不安で目が覚める", category_name: "乳児期" }
+    { content: "寝返りできそうな頃、うつ伏せで窒息していないか心配。常に生存確認なので熟睡できず不安で目が覚める", category_name: "乳児期" },
+    { content: "何でも自分でやりたい時期に突入。よし、今日は朝の出発時間は余裕を持てたと思った矢先、玄関で靴履きに１時間...結局仕事は遅刻ギリギリ。悲しすぎる", category_name: "幼児期初期〜後期" },
 ]
 questions.each do |question_data|
     category_name = question_data.delete(:category_name)
