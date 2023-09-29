@@ -18,7 +18,7 @@
 
   </head>
 
-  <body class="hold-transition sidebar-mini layout-fixed">
+  <body class="flex-grow overflow-y-auto">
     <div class="wrapper">
       <% if logged_in? %>
         <%= render 'shared/header' %>
@@ -30,6 +30,6 @@
       </div>
         <%= yield %>
       <%= render 'shared/footer' %>
-      <%= turbo_frame_tag "modal" %>
-    </body>
+    </div>
+  </body>
 </html>

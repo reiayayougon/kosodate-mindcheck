@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Omniauth', type: :system do
-    describe "ログイン" do 
+    describe "googleアカウントでログイン" do 
         before do
             OmniAuth.config.mock_auth[:google_oauth2] = google_mock 
         end
@@ -23,7 +23,6 @@ RSpec.describe 'Omniauth', type: :system do
         end
             
         context 'emailが取得できた場合' do
-            
             it "google認証でログイン成功" do
                 visit root_path
                 click_button "ログイン"

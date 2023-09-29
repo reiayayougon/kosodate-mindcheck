@@ -6,7 +6,7 @@ module PostsHelper
             name.gsub(name, "school")
         elsif name == "義理母・義理父"
             name.gsub(name, "mother_in_law")
-        elsif name == "病気・怪我"
+        elsif name == "健康・病気・怪我"
             name.gsub(name, "sickness")
         elsif name == "妻・夫"
             name.gsub(name, "wife-husband")

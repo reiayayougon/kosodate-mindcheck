@@ -26,21 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # def create
-  #   @post = current_user.posts.build(post_params)
-  #   category_id = params[:post][:category_id]
-  #   category = Category.find(category_id)
-  #   @post.category = category
-  #   if @post.save
-  #     respond_to do |format|
-  #       format.html { redirect_to posts_path, flash: { success: 'コメントを作成しました' } }
-  #       format.turbo_stream 
-  #     end
-  #   else
-  #     render new
-  #   end
-  # end
-
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new

@@ -1,4 +1,5 @@
-<%= link_to edit_post_path(post) do %>
+<%= link_to edit_post_path(post), 
+    id: "button-edit-#{post.id}" do %>
     <span class="icon-link">
         <i class="fa-solid fa-pen" style="color: #adafb3;"></i>
     </span>    
