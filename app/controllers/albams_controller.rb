@@ -1,4 +1,7 @@
 class AlbamsController < ApplicationController
+    before_action :set_albam, only: %i[show]
+
+
     def index
         @albams = Albam.all
         if current_user.status == 0
@@ -9,6 +12,13 @@ class AlbamsController < ApplicationController
 
     def new
         @albam = Albam.new
+    end
+
+    def show
+        respond_to do |format|
+            format.turbo_stream
+            format.html
+        end
     end
 
     def create
@@ -28,6 +38,12 @@ class AlbamsController < ApplicationController
     end
 
     
+    private
 
+    def set_albam
+        @albam = current_user.albams.find(params[:id])
+    end
+
+    
 
 end

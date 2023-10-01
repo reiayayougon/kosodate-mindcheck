@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AlbamModalController from "./albam_modal_controller"
+application.register("albam-modal", AlbamModalController)
+
 import ClearCommentController from "./clear_comment_controller"
 application.register("clear-comment", ClearCommentController)
 
