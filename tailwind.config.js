@@ -14,9 +14,17 @@ module.exports = {
     },
     container: {
       center: true,
+    },
+    aspectRatio: {
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
     }
   },
-  
+  corePlugins: {
+    aspectRatio: false,
+  },
   plugins: [
     require('preline/plugin'),
     require('@tailwindcss/aspect-ratio')

@@ -4,11 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
     static targets = ["modal"];
 
-    open() {
-        this.modalTarget.classList.add("open");
-    }
     close() {
-        this.modalTarget.style.display = "none";
+        this.modalTarget.classList.add('hidden');
+        window.location.href = "/albams";
+        
     }
-
 }

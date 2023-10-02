@@ -14,12 +14,7 @@ class AlbamsController < ApplicationController
         @albam = Albam.new
     end
 
-    def show
-        respond_to do |format|
-            format.turbo_stream
-            format.html
-        end
-    end
+    def show;end
 
     def create
         @albam = current_user.albams.build(albam_params)
