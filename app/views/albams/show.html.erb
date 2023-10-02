@@ -11,7 +11,7 @@
                     <p class="mt-2 text-xl">内容</p>
                     <p class="text-gray-600"><%= @albam.introduction %></p>
                 </div>
-                <%= link_to user_path(@albam.user), class: "block mt-4 p-3 bg-gray-100 hover:bg-gray-200 rounded-lg" do %>
+                <div class="block h-full p-6 flex items-center gap-x-3">
                     <div class="flex items-center gap-3">
                         <% if @albam.user.avatar.present? %>
                             <%= image_tag @albam.user.avatar.url, class: "h-10 w-10 rounded-full" %>
@@ -28,7 +28,7 @@
                         <% end %>
                         <span class="text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @albam.user.name %></span>
                     </div>
-                <% end %>
+                </div>
         
         </div>
     <% end %>

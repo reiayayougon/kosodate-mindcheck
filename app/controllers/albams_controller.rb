@@ -36,7 +36,7 @@ class AlbamsController < ApplicationController
     private
 
     def set_albam
-        @albam = current_user.albams.find(params[:id])
+        @albam = Albam.find(params[:id])
     end
 
     
