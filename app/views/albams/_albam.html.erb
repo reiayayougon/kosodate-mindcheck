@@ -3,7 +3,7 @@
         <div class="columns-3xs">
             <div data-albam-modal-target="modal">
                 <div class="w-full overflow-hidden rounded-lg">
-                    <%= link_to image_tag(albam.albam_image.url), albam_path(albam), data: { turbo_frame: "albams"} %>
+                    <%= link_to image_tag(albam.albam_image.url), albam_path(albam), data: { turbo_frame: "modal"} %>
                 </div>   
             </div>
             <div class="font font-bold">
