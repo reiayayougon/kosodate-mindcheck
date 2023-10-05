@@ -6,7 +6,7 @@ module ApplicationHelper
 
     def render_flash_messages
         render turbo_stream: [
-            turbo_stream.replace("flash_messages", partial: "shared/flash_messages")
+            turbo_stream.replace("flash_message", partial: "shared/flash_message")
         ]
     end
 

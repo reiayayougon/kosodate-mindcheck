@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    include ApplicationHelper
     before_action :find_commentable, only: %i[edit create]
     before_action :find_comment, only: %i[edit update destroy]
     
@@ -9,21 +10,10 @@ class CommentsController < ApplicationController
 
     def create
         @comment = @commentable.comments.build(comment_params)
-        respond_to do |format|
-            if @comment.save
-                format.turbo_stream { flash.now[:success] = 'コメントを作成しました' }
-                format.html do 
-                  redirect_to @comment.post,
-                                flash: { success: 'コメントを作成しました' } end
-            else
-                format.turbo_stream do
-                flash.now[:danger] = 'コメントを作成できませんでした'
-                render render_flash_messages
-                end
-                format.html do 
-                  redirect_to @comment.commentable,
-                            flash: { danger:  'コメントを作成できませんでした' } end
-            end
+        if @comment.save
+            redirect_to @comment.post
+        else
+            redirect_to @comment.post
         end
     end
         

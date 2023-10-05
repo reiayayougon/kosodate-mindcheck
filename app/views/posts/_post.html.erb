@@ -29,7 +29,7 @@
         </a>
     </td>
     <td class="h-px w-px whitespace-nowrap">
-        <%= link_to user_path(post.user), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+        <%= link_to user_path(post.user), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100",  data: { turbo: false } do %>
             <div class="flex items-center gap-x-3"> 
                 <% if post.user.avatar.present? %>
                     <%= image_tag post.user.avatar.url, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full"%>
@@ -53,10 +53,10 @@
     <td class="h-px w-72 min-w-[18rem]">
         <div class="flex justify-between">
             <div class="flex flex-col">
-                <%= link_to post_path(post), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+                <span class="block h-full p-6 flex items-center gap-x-3">
                     <span class="block text-sm text-gray-500" style="color: black;"><%= post.content %></span>
                     <span class="text-sm text-gray-600 dark:text-gray-400"></span>
-                <% end %>
+                </span>
                 <div class="flex items-center justify-end">
                     <% if current_user.own?(post) %>
                         <%= render 'crub_menu', post: post %>
@@ -67,11 +67,12 @@
             <div class="flex items-center">
                 
                 <%= render 'like_button', post: post %>
-            
-                <%= link_to post_path(post), class: "comment-icon" do %>
-                    <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
-                    <span class="comment-count" style="color: black;"><%= post.comments.count %>
-                <% end %>
+                
+                    <%= link_to post_path(post), data: { turbo_frame: "modal"}, class: "comment-icon" do %>
+                        <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
+                        <span class="comment-count" style="color: black;"><%= post.comments.count %>
+                    <% end %>
+                
             </div>
         </div>
     </td>
