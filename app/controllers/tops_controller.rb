@@ -9,6 +9,8 @@ class TopsController < ApplicationController
     end
 
     def privacy; end
+
+    def terms; end
     
     private
 

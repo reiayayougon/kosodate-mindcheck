@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'tops#index'
   get '/privacy', to: 'tops#privacy'
-
+  get '/terms', to: 'tops#terms'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   delete 'log_out', to: 'sessions#destroy', as: 'log_out'
