@@ -1,23 +1,8 @@
 Rails.application.routes.draw do
-  get 'albams/index'
-  get 'answers/create'
-  get 'questions/new'
-  get 'questions/create'
-  get 'questions/edit'
-  get 'users/show'
-  get 'categories/new'
-  get 'categories/create'
-  get 'categories/index'
-  get 'categories/destroy'
-  get 'categories/edit'
-  get 'posts/new'
-  get 'posts/create'
-  get 'posts/show'
-  get 'posts/edit'
-  get 'posts/destroy'
-  get 'tops/index'
-  root 'tops#index'
   
+  root 'tops#index'
+  get '/privacy', to: 'tops#privacy'
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   delete 'log_out', to: 'sessions#destroy', as: 'log_out'

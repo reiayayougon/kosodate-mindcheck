@@ -7,6 +7,8 @@ class TopsController < ApplicationController
             redirect_to albams_path, success: 'ステータスを回復しました'
         end
     end
+
+    def privacy; end
     
     private
 
