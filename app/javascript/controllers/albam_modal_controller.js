@@ -6,7 +6,6 @@ export default class extends Controller {
 
     close() {
         this.modalTarget.classList.add('hidden');
-        window.location.href = "/albams";
         
     }
 }
