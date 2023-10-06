@@ -1,16 +1,15 @@
 <div class="md:container md:mx-auto mt-8">
     <% if @user.status <= 0 %>
-        <%= link_to albams_path, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800" do%>
+        <%= link_to albams_path, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800 font mb-4" do%>
             ステータス回復
         <% end %>
     <% end %>
 </div>
     
-    <div class="border bg-slate-100 border-gray-300 p-8 rounded-lg">
-        <%=image_tag 'result.png', class: "ml-6", style: "width: 300px; height: 300px;"%>
+    <div class="border bg-white border-gray-300 p-8 rounded-lg">
         <div class="flex flex-wrap justify-between items-center">
             <div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
-                <h1 class="text-xl font-semibold mb-2 font">マインドステータス</h1>
+                <h1 class="text-xl font-semibold mb-2 font">あなたのマインドステータス</h1>
                 <div class="flex items-center gap-x-3"> 
                     <% if @user.avatar.present? %>
                         <%= image_tag @user.avatar.url, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full"%>
@@ -30,20 +29,45 @@
                     </div>
                 </div>
         
-                <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
-                    <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
-                        <%= @user.status >= 0 ? @user.status : 0 %>
-                    </div>
+                <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700 mt-4">
+                    <% if @user.status > 50 %>
+                        <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
+                            <%= @user.status >= 0 ? @user.status : 0 %>
+                        </div>
+                    <% elsif @user.status > 30 %>
+                        <div class="flex flex-col justify-center overflow-hidden bg-yellow-300 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
+                            <%= @user.status >= 0 ? @user.status : 0 %>
+                        </div>
+                    <% else %>    
+                        <div class="flex flex-col justify-center overflow-hidden bg-red-600 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
+                            <%= @user.status >= 0 ? @user.status : 0 %>
+                        </div>
+                    <% end %>
                 </div>
             </div>
             <div class="w-full md:w-1/2 relative">
                 <div class="border bg-white border-gray-300 p-4 rounded-lg relative" >
                     <h1 class="text-xl font-semibold mb-2 font">悩みカテゴリ</h1>
-                        <%= pie_chart @user_answer_counts, id: "users-chart", width: "400px", height: "400px", colors: ["#4682A9", "#F6F4EB", "#749BC2", "#91C8E4", "#9EB384", "#CEDEBD", "#9EB384", "#EEE2DE"], label: "悩んだ数" %> 
-                    <% if @user.has_yes? %>
-                        <%= image_tag 'yes.png', style: "width: 200px; height: 200px; margin-top: 20px;", class: "absolute right-0 bottom-0" %>
-                    <% end %>
+                    <%= pie_chart @user_answer_counts, id: "users-chart", width: "400px", height: "400px", colors: ["#4682A9", "#F6F4EB", "#749BC2", "#91C8E4", "#9EB384", "#CEDEBD", "#9EB384", "#EEE2DE"], label: "悩んだ数" %> 
                 </div>
+            </div>
+        </div>
+    </div>
+    <div data-controller="modal" class="text-center">
+        <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
+            <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
+                <div class="modal-content">
+                    <div data-controller="slider">
+                        <div class="swiper" data-slider-target="container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <%=image_tag "answer.png" %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button data-action="click->modal#hide" data-turbo-frame="modal" ><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
     </div>
