@@ -1,5 +1,5 @@
 class TopsController < ApplicationController
-    skip_before_action :check_logged_in, only: %i[index]
+    skip_before_action :check_logged_in
     before_action :set_user, only: %i[index]
 
     def index
