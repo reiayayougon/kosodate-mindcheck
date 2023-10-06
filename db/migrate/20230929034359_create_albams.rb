@@ -1,0 +1,12 @@
+class CreateAlbams < ActiveRecord::Migration[7.0]
+  def change
+    create_table :albams do |t|
+      t.string :title, null: false
+      t.string :introduction
+      t.string :albam_image, null: false
+      t.references :user, null: false, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end

@@ -15,11 +15,9 @@
                     <div class="form-group">
                         <%= f.label :avatar, '画像' %>
                         <%= f.file_field :avatar, data: {"preview-target": "file", action: "preview#previewImage" } %>
-                        <% if @user.avatar.attached? %>
+                        <div class="mt-3 mb-3">
                             <%= image_tag @user.avatar.url, "data-preview-target": "image", size: '200x200' %>
-                        <% else %>
-                            <%= image_tag "sample.jpg", "data-preview-target": "image" %>
-                        <% end %>
+                        </div>
                     </div>
                 
                     <div class="flex justify-center">

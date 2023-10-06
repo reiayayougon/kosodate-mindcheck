@@ -1,5 +1,5 @@
 class TopsController < ApplicationController
-    skip_before_action :check_logged_in, only: %i[index]
+    skip_before_action :check_logged_in
     before_action :set_user, only: %i[index]
 
     def index
@@ -7,6 +7,10 @@ class TopsController < ApplicationController
             redirect_to albams_path, success: 'ステータスを回復しました'
         end
     end
+
+    def privacy; end
+
+    def terms; end
     
     private
 
