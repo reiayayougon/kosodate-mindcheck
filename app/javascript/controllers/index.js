@@ -13,6 +13,9 @@ application.register("comment-modal", CommentModalController)
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
 
+import PopoverController from "./popover_controller"
+application.register("popover", PopoverController)
+
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 

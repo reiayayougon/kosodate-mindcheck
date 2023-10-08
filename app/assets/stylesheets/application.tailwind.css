@@ -116,3 +116,11 @@
         text-align: center;
     }
 }
+
+@media (max-width: 640px) {
+    /* スマートフォン画面用のスタイル */
+    .popover-text {
+        writing-mode: horizontal-tb; /* テキストを横書きに設定 */
+        white-space: nowrap; /* テキストが折り返されないように設定 */
+    }
+}
