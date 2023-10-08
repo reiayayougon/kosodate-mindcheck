@@ -23,6 +23,6 @@ Rails.application.routes.draw do
     resources :answers, only: %i[create]
   end
   resources :albams, only: %i[index show new create edit update destroy]
-  resources :comments
-  resources :posts
+  
+  
 end
