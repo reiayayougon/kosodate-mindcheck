@@ -55,3 +55,6 @@ MVP後の実装ではプッシュ通知を実装。通知設定をONにしてい
 
 <figmaリンク>
 https://www.figma.com/file/W9TzEtTSjZHImhk9m26ZNy/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&mode=design&t=6JEHAV6tACUO0X2E-1
+
+## ER図 ##
+[![Image from Gyazo](https://i.gyazo.com/0c96b6362fb563478c31eed0d5c4b3dc.png)](https://gyazo.com/0c96b6362fb563478c31eed0d5c4b3dc)
