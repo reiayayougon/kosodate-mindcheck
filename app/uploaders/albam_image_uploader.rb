@@ -5,7 +5,9 @@ class AlbamImageUploader < CarrierWave::Uploader::Base
         storage :file
     end
     
-    
+    include CarrierWave::MiniMagick
+    process resize_to_limit: [1200, 1200]
+
     def store_dir
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end

@@ -51,7 +51,7 @@ questions = [
     { content: "友人同士で子供の成績や成長を比較してしまい、友人付き合いが嫌になってきた", category_name: "友人" },
     { content: "義理母(父)が子供に過剰に干渉してくるのやめてほしい", category_name: "義理母・義理父" },
     { content: "子供の服を買うのが楽しみなのに、義理母(父)が服をどんどん買ってくるのやめてほしい..有難いんだけどさ..着せたい服の趣味違うし..", category_name: "義理母・義理父" },
-    { content: "義理母と義理父はよく喧嘩をしているけど子供の前でやるのやめてほしい", category_name: "義理母・義理父" },
+    { content: "義理母と義理父はよく喧嘩をしているけど子供の前でやるのやめてほしい", category_name: "義理母・義理父" }
 ]
 questions.each do |question_data|
     category_name = question_data.delete(:category_name)

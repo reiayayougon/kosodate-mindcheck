@@ -82,3 +82,45 @@
 .hidden {
     display: none;
 }
+
+
+/* アルバム一覧 */
+@media (max-width: 640px) {
+    .w-full.overflow-hidden.rounded-lg {
+        /* 画像コンテナのスタイル */
+        margin: 0 auto;
+        max-width: 50%;
+    }
+
+    .font-bold {
+        /* タイトルと内容のスタイル */
+        text-align: center;
+    }
+
+    .font-bold p {
+        margin: 0;
+    }
+
+    .block.h-full.p-6.flex.items-center.gap-x-3 {
+        /* ユーザーアイコンとユーザー名のスタイル */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .block.h-full.p-6.flex.items-center.gap-x-3 img {
+        margin-bottom: 10px; /* アイコンとユーザー名の間隔を調整 */
+    }
+
+    .text-sm.font-semibold.text-gray-800.dark:text-gray-200 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    /* スマートフォン画面用のスタイル */
+    .popover-text {
+        writing-mode: horizontal-tb; /* テキストを横書きに設定 */
+        white-space: nowrap; /* テキストが折り返されないように設定 */
+    }
+}
