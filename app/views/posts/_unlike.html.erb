@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'like_count' do %>
     <%= link_to post_like_path(post_id: post.id, id: current_user.likes.find_by(post_id: post.id)),
                 data: { turbo_method: :delete },
-                class: "block text-sm text-black-500" do %> 
+                class: "unlike_button block text-sm text-black-500" do %> 
         <div class="flex items-center">
             <i class="fa-regular fa-face-smile-beam" style="color: #c723a9;"></i>
             <span class="like-count"><%= post.likes.count %></span>
