@@ -117,6 +117,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -235,6 +237,9 @@ GEM
       rack (~> 2.2, >= 2.2.4)
     rack-test (2.1.0)
       rack (>= 1.3)
+    rack_session_access (0.2.0)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (7.0.7.2)
       actioncable (= 7.0.7.2)
       actionmailbox (= 7.0.7.2)
@@ -399,6 +404,7 @@ DEPENDENCIES
   debug
   dotenv-rails
   factory_bot_rails
+  faker
   foreman
   highcharts-rails
   importmap-rails
@@ -410,6 +416,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection
   pg (~> 1.1)
   puma (~> 5.0)
+  rack_session_access
   rails (~> 7.0.3)
   ransack
   redis (~> 4.0)

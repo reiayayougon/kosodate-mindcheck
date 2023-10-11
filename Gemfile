@@ -79,17 +79,16 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  # gem 'poltergeist'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'rack_session_access'
+  gem 'faker'
 end
 
 #login
-  gem 'omniauth-google-oauth2'
-  
-  gem 'omniauth-rails_csrf_protection'
-
-#Rspec
-  gem 'factory_bot_rails'
-  gem 'rspec-rails'
-  gem 'capybara'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 #search
 gem 'ransack'
