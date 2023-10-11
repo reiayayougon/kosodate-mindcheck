@@ -3,11 +3,11 @@ class AlbamsController < ApplicationController
 
 
     def index
-        @albams = Albam.all
-        if current_user.status == 0
+        if current_user.status <= 0
             current_user.reset_status
             current_user.update(status: 100) 
         end
+        @albams = Albam.all
     end
 
     def new

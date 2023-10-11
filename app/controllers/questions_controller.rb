@@ -26,11 +26,11 @@ class QuestionsController < ApplicationController
     puts "回答数: #{session[:answered_count]}" 
     puts "質問履歴: #{question_history.inspect}"
     @user = current_user
-        current_user.calculate_status
-        @user_answer_counts = @user.answers.where(answer_select: "yes")
-                                        .joins(question: :category)
-                                        .group("categories.name")
-                                        .count
+    current_user.calculate_status
+    @user_answer_counts = @user.answers.where(answer_select: "yes")
+                                    .joins(question: :category)
+                                    .group("categories.name")
+                                    .count
   end
 
 
@@ -52,8 +52,10 @@ class QuestionsController < ApplicationController
 
   def random
     question_history = session[:question_history] || []
+    
     @question = select_random_question(question_history)
     @answer = Answer.new
+    current_user.calculate_status
     session[:question_history] << @question.id
 
     if session[:question_history].size > 10
@@ -64,13 +66,12 @@ class QuestionsController < ApplicationController
     question_history = session[:question_history]
     puts "Session ID: #{session.id}"
     puts "質問履歴: #{question_history.inspect}"
-    
   end
 
   private
 
   def select_random_question(question_history)
-    #すべての質問から、履歴に含まれていない質問をランダムに選択
+    #履歴に含まれていない質問をランダムに選択
     available_questions = Question.where.not(id: question_history)
     if available_questions.empty?
       #履歴に含まれている質問がすべて表示された場合、履歴をクリア
