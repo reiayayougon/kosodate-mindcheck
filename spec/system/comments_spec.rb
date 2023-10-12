@@ -31,7 +31,6 @@ RSpec.describe "Comments", type: :system do
                 click_on '投稿'
                 comment = Comment.last
                 within("#comment_#{comment.id}") do
-                    sleep(2)
                     expect(page).to have_content(user.name)
                     expect(page).to have_content('新規コメント')
                 end

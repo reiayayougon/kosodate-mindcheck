@@ -41,7 +41,7 @@ RSpec.describe "Statuses", type: :system do
         context 'ステータスが０になった場合' do
             it 'アルバム一覧ページに遷移すると回復できること' do
                 user.update(status: 0)
-                visit albams_path
+                visit albums_path
                 user_status_after = User.find(user.id).status
                 expect(user_status_after).to eq(100)
             end

@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="albam-modal"
+// Connects to data-controller="album-modal"
 export default class extends Controller {
     static targets = ["modal"];
 

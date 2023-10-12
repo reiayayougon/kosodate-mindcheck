@@ -1,4 +1,4 @@
-class AlbamImageUploader < CarrierWave::Uploader::Base
+class AlbumImageUploader < CarrierWave::Uploader::Base
     include CarrierWave::MiniMagick
     process resize_to_limit: [1200, 1200]
 
@@ -20,7 +20,7 @@ class AlbamImageUploader < CarrierWave::Uploader::Base
         %w[jpg jpeg gif png]
     end
 
-    def albam_attached?
+    def album_attached?
         !model.avatar.file.nil?
     end
 

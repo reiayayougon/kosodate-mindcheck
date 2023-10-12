@@ -1,11 +1,11 @@
-class Albam < ApplicationRecord
+class Album < ApplicationRecord
     belongs_to :user
 
     validates :title, presence: true, length: { maximum: 255 }
     validates :introduction, length: { maximum: 655 }
-    validates :albam_image, presence: true
-    
-    mount_uploader :albam_image, AlbamImageUploader
+    validates :album_image, presence: true
+
+    mount_uploader :album_image, AlbumImageUploader
 
 
 end

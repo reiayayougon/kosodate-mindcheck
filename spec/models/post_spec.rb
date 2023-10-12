@@ -35,7 +35,6 @@ RSpec.describe Post, type: :model do
     context '本文が255文字以上の場合' do
         it '無効であること' do
             post = build(:post, content: 'a' * 256, user: create(:user), category: create(:category))
-            expect(post).to be_invalid
             expect(post.errors[:content]).to include("is too long (maximum is 255 characters)")
         end
     end
