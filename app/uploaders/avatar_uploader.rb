@@ -1,11 +1,11 @@
 class AvatarUploader < CarrierWave::Uploader::Base
+    include CarrierWave::MiniMagick
+
     if Rails.env.production?
         include Cloudinary::CarrierWave
     else
         storage :file
     end
-
-    include CarrierWave::MiniMagick
     
     def store_dir
         "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
@@ -15,7 +15,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
         'sample.jpg'
     end
     
-    def extension_whitelist # 拡張子の制限
+    def extension_allowlist # 拡張子の制限
         %w[jpg jpeg gif png]
     end
     

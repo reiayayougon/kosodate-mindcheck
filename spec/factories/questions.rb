@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :question do
-    content { "MyText" }
-    category { nil }
-    user { nil }
-  end
+	factory :question do
+		content { Faker::Lorem.sentence }
+		association :user
+		association :category
+	end
 end

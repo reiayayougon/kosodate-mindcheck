@@ -7,12 +7,11 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build(answer_params)
     @answer.user = @user
     @answer.save
-
     puts "回答数: #{session[:answered_count]}" 
     session[:answered_count] ||= 0
     session[:answered_count] += 1
-
-    if session[:answered_count] >= 10
+    
+    if current_user.status == 0 || session[:answered_count] >= 10
       redirect_to question_path(@answer)
     else
       redirect_to random_questions_path

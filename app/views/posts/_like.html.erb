@@ -1,5 +1,6 @@
 <%= turbo_frame_tag 'like_count' do %>
     <%= link_to post_like_path(post_id: post.id),
+                class: "like_button",
                 data: { turbo_method: :post } do %>
         <div class="flex items-center">
             <i class="fa-regular fa-face-meh-blank custom-icon" style="color: #adafb3;"></i>

@@ -14,7 +14,7 @@
                 <%= @user.introduction %>
                 <div class="flex mt-4 space-x-3 md:mt-6">
                     <% if current_user == @user %>
-                        <%= link_to '編集', edit_profile_path, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+                        <%= link_to '編集', edit_profile_path, class: "edit-button inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
                     <% end %>
                 </div>
             </div>

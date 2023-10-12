@@ -1,22 +1,22 @@
-<turbo-frame id="albam-list">
+<turbo-frame id="album-list">
     <%= render "modal" do %>
-        <div data-albam-modal-target="modal">
+        <div data-album-modal-target="modal">
         
                 <div class="w-full overflow-hidden rounded-lg">
-                    <%= image_tag @albam.albam_image.url, class: "h-full w-full object-cover object-center group-hover:opacity-75"%>
+                    <%= image_tag @album.album_image.url, class: "h-full w-full object-cover object-center group-hover:opacity-75"%>
                 </div>
                 <div class="font-bold mt-4 font">
                     <p class="text-xl">タイトル</p>
-                    <p class="text-gray-600"><%= @albam.title %></p>
+                    <p class="text-gray-600"><%= @album.title %></p>
                     <p class="mt-2 text-xl">内容</p>
-                    <p class="text-gray-600"><%= @albam.introduction %></p>
+                    <p class="text-gray-600"><%= @album.introduction %></p>
                 </div>
                 <div class="block h-full p-6 flex items-center gap-x-3">
                     <div class="flex items-center gap-3">
-                        <% if @albam.user.avatar.present? %>
-                            <%= image_tag @albam.user.avatar.url, class: "h-10 w-10 rounded-full" %>
-                        <% elsif @albam.user.image.present? %>
-                            <%= image_tag @albam.user.image, class: "h-10 w-10 rounded-full" %>
+                        <% if @album.user.avatar.present? %>
+                            <%= image_tag @album.user.avatar.url, class: "h-10 w-10 rounded-full" %>
+                        <% elsif @album.user.image.present? %>
+                            <%= image_tag @album.user.image, class: "h-10 w-10 rounded-full" %>
                         <% else %>
                             <span class="inline-block w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
                                 <svg class="w-6 h-6 text-gray-300" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@
                                 </svg>
                             </span>
                         <% end %>
-                        <span class="text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @albam.user.name %></span>
+                        <span class="text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @album.user.name %></span>
                     </div>
                 </div>
         

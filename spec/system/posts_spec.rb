@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Post", type: :system do
+RSpec.describe "Posts", type: :system do
     let(:user) { create(:user) }
     let(:post) { create(:post, user: user) }
     let(:category) { create(:category) }
-    let(:post_by_others) { create(:post) }
-
+    
+    
     describe '投稿のCRUD' do
         describe '投稿の作成' do
             context 'ログインしていない場合' do
@@ -39,13 +39,22 @@ RSpec.describe "Post", type: :system do
                 end
             end
         end   
-        describe '掲示板の編集' do
+        describe '投稿の編集' do
             context '他人の投稿の場合' do
+                let(:post_by_others) { create(:post_by_others) }
                 it '編集ボタン・削除ボタンが表示されないこと' do
                     login_with_google
-                    visit post_path post_by_others
+                    visit post_path(post_by_others)
                     expect(page).not_to have_selector("#button-edit-#{post_by_others.id}")
                     expect(page).not_to have_selector("#button-delete-#{post_by_others.id}")
+                end
+            end
+            context '自分の投稿の場合' do
+                it '編集ボタン・削除ボタンが表示されること' do
+                    login_with_google
+                    visit posts_path post
+                    expect(page).to have_selector("#button-edit-#{post.id}")
+                    expect(page).to have_selector("#button-delete-#{post.id}")
                 end
             end
         end

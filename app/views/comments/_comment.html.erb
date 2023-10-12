@@ -36,7 +36,7 @@
                 <% if current_user.own?(comment) %>
                     <ul class="list-inline justify-content-center">
                         <li class="list-inline-item">
-                            <%= link_to edit_comment_path(comment), data: { turbo_frame: "modal" } do %>
+                            <%= link_to edit_comment_path(comment), class: 'js-edit-comment-button', data: { turbo_frame: "modal" } do %>
                                 <i class="fa-solid fa-pen"></i> 
                             <% end %>
                         </li>

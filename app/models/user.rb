@@ -6,7 +6,7 @@ class User < ApplicationRecord
     has_many :questions, dependent: :destroy
     has_many :answers, dependent: :destroy
     has_many :answers, dependent: :destroy
-    has_many :albams, dependent: :destroy
+    has_many :albums, dependent: :destroy
 
     mount_uploader :avatar, AvatarUploader
     

@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Omniauth', type: :system do
+    let(:user) { create(:user) }
     describe "googleアカウントでログイン" do 
         before do
-            OmniAuth.config.mock_auth[:google_oauth2] = google_mock 
+            OmniAuth.config.mock_auth[:google_oauth2] = google_mock(user)
         end
 
         context 'emailが取得できない場合' do
@@ -16,7 +17,8 @@ RSpec.describe 'Omniauth', type: :system do
                     }
                 )
                 visit root_path
-                click_button "ログイン"
+                execute_script("document.querySelector('div[data-modal-target=\"modal\"]').style.display = 'none';")
+                find('.login').click
                 sleep 1
                 expect(page).to have_content "ログインに失敗しました"
             end
@@ -25,9 +27,9 @@ RSpec.describe 'Omniauth', type: :system do
         context 'emailが取得できた場合' do
             it "google認証でログイン成功" do
                 visit root_path
-                click_button "ログイン"
+                execute_script("document.querySelector('div[data-modal-target=\"modal\"]').style.display = 'none';")
+                find('.login').click
                 sleep 1
-                expect(google_mock.info.email).to be_present
                 expect(page).to have_content 'ログインしました'
             end
         end
