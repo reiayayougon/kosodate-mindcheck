@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
     before_action :set_album, only: %i[show]
-
+    before_action :find_album, only: %i[edit update destroy]
 
     def index
         if current_user.status <= 0
@@ -26,19 +26,34 @@ class AlbumsController < ApplicationController
         end
     end
 
+    def edit;end
+    
+    def update
+        if @album.update(album_params)
+            flash[:success] = 'アルバムを更新しました'
+            redirect_to albums_path
+        else
+            flash.now[:danger] = "更新に失敗しました"
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        @album.destroy!
+        flash.now[:success] = "アルバムを削除しました"
+    end
+
     private
 
     def album_params
         params.require(:album).permit(:title, :introduction, :album_image, :album_image_cache)
     end
 
-    
-    private
-
     def set_album
         @album = Album.find(params[:id])
     end
 
-    
-
+    def find_album
+        @album = current_user.albums.find(params[:id])
+    end
 end

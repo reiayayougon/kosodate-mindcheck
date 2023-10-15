@@ -22,7 +22,5 @@ Rails.application.routes.draw do
     get 'random', on: :collection, to: 'questions#random'
     resources :answers, only: %i[create]
   end
-  resources :albums, only: %i[index show new create edit update destroy]
-  
-  
+  resources :albums
 end
