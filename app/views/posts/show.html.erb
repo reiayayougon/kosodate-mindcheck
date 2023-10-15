@@ -1,5 +1,5 @@
 <turbo-frame id="comment-list">
-	<div data-albam-modal-target="modal">
+	<div data-comment-modal-target="modal">
 		<%= render "modal" do %>
 			<%= render 'comments/form', { post: @post, comment: @comment } %>
 			<%= render 'comments/comments', { comments: @comments } %> 
