@@ -52,7 +52,6 @@ class QuestionsController < ApplicationController
 
   def random
     question_history = session[:question_history] || []
-    
     @question = select_random_question(question_history)
     @answer = Answer.new
     current_user.calculate_status

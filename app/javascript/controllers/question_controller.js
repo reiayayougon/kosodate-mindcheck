@@ -7,9 +7,6 @@ export default class extends Controller {
   async fetchRandomQuestion() {
     const response = await fetch("/questions/random");
     const data = await response.json();
-    console.log(data);
     this.contentTarget.textContent = data.question.content;
-    
-  
   }
 }
