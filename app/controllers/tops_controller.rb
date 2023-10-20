@@ -3,20 +3,18 @@ class TopsController < ApplicationController
     before_action :set_user, only: %i[index]
 
     def index
-        if logged_in? && @user.status == 0 
-            redirect_to albams_path, success: 'ステータスを回復しました'
-        end
+        return unless logged_in? && @user.status == 0 
+        redirect_to albams_path, success: 'ステータスを回復しました'
     end
 
     def privacy; end
 
     def terms; end
     
-    private
+  private
 
     def set_user
-        if logged_in?
-            @user = User.find(current_user.id)
-        end
+        return unless logged_in?
+        @user = User.find(current_user.id)
     end
 end

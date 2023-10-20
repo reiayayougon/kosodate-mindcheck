@@ -14,11 +14,10 @@ class SessionsController < ApplicationController
         
     def destroy
         log_out
-        redirect_to root_path,  status: :see_other, success: 'ログアウトしました'
-        
+        redirect_to root_path, status: :see_other, success: 'ログアウトしました'
     end
     
-    private
+  private
     
     def auth_hash
         request.env['omniauth.auth']

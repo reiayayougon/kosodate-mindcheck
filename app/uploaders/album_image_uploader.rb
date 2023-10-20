@@ -16,12 +16,12 @@ class AlbumImageUploader < CarrierWave::Uploader::Base
         'sample.jpg'
     end
 
-    def extension_allowlist # 拡張子の制限
+    # 拡張子の制限
+    def extension_allowlist
         %w[jpg jpeg gif png]
     end
 
     def album_attached?
         !model.avatar.file.nil?
     end
-
 end

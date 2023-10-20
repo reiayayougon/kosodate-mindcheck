@@ -15,10 +15,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-    category_id = params[:post][:category_id]
-    category = Category.find(category_id)
-    @post.category = category
-    
+      category_id = params[:post][:category_id]
+      category = Category.find(category_id)
+      @post.category = category
       redirect_to posts_path, success: '投稿を作成しました'
     else
       flash.now[:error] = "作成に失敗しました"
@@ -32,9 +31,7 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit
-  end
-
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -49,14 +46,11 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy!
     flash.now[:success] = "投稿を削除しました"
-    
-                      
   end
   
   def likes
     @like_post = current_user.liked_posts.includes(:user).order(created_at: :desc)
   end
-
 
   def search
     @q = Post.ransack(params[:q])

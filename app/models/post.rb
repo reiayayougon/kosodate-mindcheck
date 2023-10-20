@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :category_id, presence: true
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     %w[content category_id]
   end
 end

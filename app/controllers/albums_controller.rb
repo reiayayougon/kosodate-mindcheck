@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
         @album = Album.new
     end
 
-    def show;end
+    def show; end
 
     def create
         @album = current_user.albums.build(album_params)
@@ -26,7 +26,7 @@ class AlbumsController < ApplicationController
         end
     end
 
-    def edit;end
+    def edit; end
     
     def update
         if @album.update(album_params)
@@ -43,7 +43,7 @@ class AlbumsController < ApplicationController
         flash.now[:success] = "アルバムを削除しました"
     end
 
-    private
+  private
 
     def album_params
         params.require(:album).permit(:title, :introduction, :album_image, :album_image_cache)

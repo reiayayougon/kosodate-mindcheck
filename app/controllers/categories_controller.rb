@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  
   def new
     @category = Category.new
   end
@@ -20,11 +21,10 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    if current_user.status == 0
-      current_user.reset_status
-      current_user.update(status: 100) 
+    return unless current_user.status == 0
 
-    end
+    current_user.reset_status
+    current_user.update(status: 100) 
   end
 
   def destroy
@@ -32,8 +32,7 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
-  def edit
-  end
+  def edit; end
 
   private
 

@@ -23,7 +23,7 @@ class User < ApplicationRecord
             end
         end
             
-        private
+      private
     
         def user_params_from_auth_hash(auth_hash)
         {
@@ -67,5 +67,4 @@ class User < ApplicationRecord
     def has_yes?
         self.answers.exists?(answer_select: "yes")
     end
-
 end

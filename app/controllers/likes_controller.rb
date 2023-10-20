@@ -3,21 +3,15 @@ class LikesController < ApplicationController
 
     def create
         current_user.like(@post)
-        respond_to do |format|
-            format.turbo_stream
-        end
-    end
-
-    
+        respond_to(&:turbo_stream)
+    end    
 
     def destroy
         current_user.unlike(@post)
-        respond_to do |format|
-            format.turbo_stream
-        end
+        respond_to(&:turbo_stream)
     end
     
-    private
+  private
 
     def set_post
         @post = Post.find(params[:post_id])
