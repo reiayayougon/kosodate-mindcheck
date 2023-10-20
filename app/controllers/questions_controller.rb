@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
       redirect_to new_question_path
       flash[:success] = "質問を作成しました"
     else
-      flash.now[:error] = "質問作成に失敗しました"
+      flash.now[:danger] = "質問作成に失敗しました"
       render new_question_path
       
     end
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to new_question_path, success: '質問を変更しました'
     else
-      flash.now[:error] = "質問作成に失敗しました"
+      flash.now[:danger] = "更新に失敗しました"
       render new_question_path
     end
   end
