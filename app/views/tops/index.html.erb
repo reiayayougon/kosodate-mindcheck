@@ -1,12 +1,8 @@
 <div class="flex justify-center items-center min-h-screen">
     <% if logged_in? %>
-        <div data-controller="question">
-            <%=link_to random_questions_path, class: "box1 inline-flex justify-center items-center font-semibold text-white focus:outline-none focus:ring-3 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" do %>
-                子育てマインド<br>チェック開始
-            <% end %>
-            <div data-question-target="container">
-            </div>
-        </div>
+        <%=link_to random_questions_path,  data: { turbo: false }, class: "box1 inline-flex justify-center items-center font-semibold text-white focus:outline-none focus:ring-3 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800" do %>
+            子育てマインド<br>チェック開始
+        <% end %>
     <% else %>
         <div data-controller="modal" class="text-center">
             <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
