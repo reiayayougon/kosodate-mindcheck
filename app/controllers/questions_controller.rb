@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
     if session[:question_history].size > 10
       session[:question_history].shift(session[:question_history].size - 10)
     end
-    session[:question_history] ||= [] #セッション履歴が存在しない場合に初期化
+    session[:question_history] ||= [] # セッション履歴が存在しない場合に初期化
 
     question_history = session[:question_history]
     @question_number = question_history.size
@@ -70,7 +70,7 @@ class QuestionsController < ApplicationController
     if available_questions.empty?
       # 履歴に含まれている質問がすべて表示された場合、履歴をクリア
       question_history.clear
-      available_questions = Question.all #すべての質問を再び利用可能な質問として設定
+      available_questions = Question.all # すべての質問を再び利用可能な質問として設定
     end
     selected_question = available_questions.order('RANDOM()').first
     # 選択した質問がnilでないか確認.使用可能な質問がない場合は、全質問の中からランダムに選択
