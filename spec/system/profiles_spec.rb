@@ -11,11 +11,11 @@ RSpec.describe "Profiles", type: :system do
                 expect(page).to have_content('ログインしてください')
             end
         end
-        
+
         context 'ログインしている場合' do
             before do
                 login_with_google
-                find('.dropdown-red img').click
+                find('.dropdown-user img').click
                 click_link 'プロフィール'
             end
 

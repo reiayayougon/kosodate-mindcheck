@@ -7,7 +7,7 @@ RSpec.describe "Albums", type: :system do
         context 'ログインしている場合' do
             before do
                 login_with_google
-                find('.dropdown-orenge img').click
+                find('.dropdown-orenge').click
                 click_link 'アルバム作成'
             end
 
