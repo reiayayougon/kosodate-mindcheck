@@ -26,32 +26,29 @@ Bundler/OrderedGems:
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: outdent, indent
 Layout/AccessModifierIndentation:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/comments_controller.rb'
-    - 'app/controllers/likes_controller.rb'
-    - 'app/controllers/profiles_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
-    - 'app/controllers/tops_controller.rb'
-    - 'app/models/user.rb'
+    
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
+Layout/ArgumentAlignment:  #引数の整列
+  Enabled: true 
   Exclude:
-    - 'app/controllers/comments_controller.rb'
-    - 'config/initializers/omniauth.rb'
+
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
-Layout/BlockEndNewline:
+Layout/BlockEndNewline:    #ブロックの終了括弧のインデント
+  Enabled: true 
   Exclude:
-    - 'app/controllers/comments_controller.rb'
 
 # Offense count: 3
 # This cop supports safe autocorrection (--autocorrect).
 Layout/ClosingParenthesisIndentation:
+  Enabled: true 
   Exclude:
     - 'db/seeds.rb'
     - 'spec/support/omniauth_mocks.rb'
@@ -61,14 +58,15 @@ Layout/ClosingParenthesisIndentation:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowForAlignment.
 Layout/CommentIndentation:
+  Enabled: true 
   Exclude:
     - 'Gemfile'
-    - 'app/controllers/questions_controller.rb'
     - 'spec/support/omniauth_mocks.rb'
 
 # Offense count: 6
 # This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLineAfterGuardClause:
+Layout/EmptyLineAfterGuardClause: #ガード節の後に空行設定
+  Enabled: false
   Exclude:
     - 'bin/bundle'
 
@@ -76,18 +74,14 @@ Layout/EmptyLineAfterGuardClause:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EmptyLineBetweenMethodDefs, EmptyLineBetweenClassDefs, EmptyLineBetweenModuleDefs, DefLikeMacros, AllowAdjacentOneLineDefs, NumberOfEmptyLines.
 Layout/EmptyLineBetweenDefs:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/comments_controller.rb'
-    - 'app/controllers/likes_controller.rb'
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/questions_controller.rb'
 
 # Offense count: 9
 # This cop supports safe autocorrection (--autocorrect).
 Layout/EmptyLines:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/questions_controller.rb'
     - 'app/helpers/application_helper.rb'
     - 'db/seeds.rb'
     - 'spec/rails_helper.rb'
@@ -97,14 +91,15 @@ Layout/EmptyLines:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: around, only_before
 Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/users_controller.rb'
 
 # Offense count: 6
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, no_empty_lines
-Layout/EmptyLinesAroundBlockBody:
+Layout/EmptyLinesAroundBlockBody: #ブロッック前後の空欄チェック
+  Enabled: true
   Exclude:
     - 'spec/requests/albams_spec.rb'
     - 'spec/requests/answers_spec.rb'
@@ -117,11 +112,9 @@ Layout/EmptyLinesAroundBlockBody:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
-Layout/EmptyLinesAroundClassBody:
+Layout/EmptyLinesAroundClassBody:  #アクセス修飾子周りの空行
+  Enabled: true 
   Exclude:
-    - 'app/controllers/questions_controller.rb'
-    - 'app/models/question.rb'
-    - 'app/models/user.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -135,9 +128,8 @@ Layout/EmptyLinesAroundModuleBody:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
 Layout/ExtraSpacing:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/comments_controller.rb'
-    - 'app/controllers/sessions_controller.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -174,8 +166,6 @@ Layout/FirstHashElementIndentation:
 Layout/IndentationConsistency:
   Exclude:
     - 'Gemfile'
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/questions_controller.rb'
 
 # Offense count: 161
 # This cop supports safe autocorrection (--autocorrect).
@@ -189,14 +179,12 @@ Layout/IndentationWidth:
 Layout/LeadingCommentSpace:
   Exclude:
     - 'Gemfile'
-    - 'app/controllers/questions_controller.rb'
     - 'spec/rails_helper.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 Layout/MultilineBlockLayout:
   Exclude:
-    - 'app/controllers/comments_controller.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -212,7 +200,6 @@ Layout/MultilineMethodCallBraceLayout:
 # SupportedStyles: aligned, indented, indented_relative_to_receiver
 Layout/MultilineMethodCallIndentation:
   Exclude:
-    - 'app/controllers/questions_controller.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -226,7 +213,6 @@ Layout/MultilineOperationIndentation:
 # This cop supports safe autocorrection (--autocorrect).
 Layout/SpaceAfterSemicolon:
   Exclude:
-    - 'app/controllers/profiles_controller.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -247,11 +233,8 @@ Layout/SpaceInsidePercentLiteralDelimiters:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: final_newline, final_blank_line
-Layout/TrailingEmptyLines:
+Layout/TrailingEmptyLines: #末尾の空行
   Exclude:
-    - 'app/controllers/questions_controller.rb'
-    - 'app/models/post.rb'
-    - 'config/initializers/omniauth.rb'
     - 'db/seeds.rb'
     - 'spec/support/omniauth_mocks.rb'
     - 'spec/system/omniauth_spec.rb'
@@ -267,7 +250,6 @@ Layout/TrailingWhitespace:
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods, IgnoreNotImplementedMethods.
 Lint/UnusedMethodArgument:
   Exclude:
-    - 'app/models/post.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -278,7 +260,8 @@ Lint/UselessAssignment:
 # Offense count: 7
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
 Metrics/AbcSize:
-  Max: 28
+  Enabled: false
+  # Max: 28
 
 # Offense count: 6
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
@@ -327,7 +310,6 @@ Style/BlockComments:
 # AllowedMethods: lambda, proc, it
 Style/BlockDelimiters:
   Exclude:
-    - 'app/controllers/comments_controller.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -360,14 +342,8 @@ Style/Documentation:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: compact, expanded
-Style/EmptyMethod:
+Style/EmptyMethod:  #空メソッド確認
   Exclude:
-    - 'app/controllers/categories_controller.rb'
-    - 'app/controllers/comments_controller.rb'
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/profiles_controller.rb'
-    - 'app/controllers/questions_controller.rb'
-    - 'app/controllers/users_controller.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -392,12 +368,9 @@ Style/GlobalStdStream:
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: MinBodyLength, AllowConsecutiveConditionals.
 Style/GuardClause:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/albams_controller.rb'
-    - 'app/controllers/categories_controller.rb'
-    - 'app/controllers/questions_controller.rb'
-    - 'app/controllers/tops_controller.rb'
-
+  
 # Offense count: 7
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: EnforcedStyle, EnforcedShorthandSyntax, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
@@ -411,10 +384,8 @@ Style/HashSyntax:
 # Offense count: 6
 # This cop supports safe autocorrection (--autocorrect).
 Style/IfUnlessModifier:
+  Enabled: true 
   Exclude:
-    - 'app/controllers/posts_controller.rb'
-    - 'app/controllers/questions_controller.rb'
-    - 'app/controllers/tops_controller.rb'
     - 'bin/bundle'
 
 # Offense count: 1
@@ -489,9 +460,9 @@ Style/SymbolArray:
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: AllowMethodsWithArguments, AllowedMethods, AllowedPatterns, AllowComments.
 # AllowedMethods: define_method
-Style/SymbolProc:
+Style/SymbolProc: #ブロックの引数としてシンボルを受け取る場合簡潔にする
+  Enabled: true 
   Exclude:
-    - 'app/controllers/likes_controller.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).

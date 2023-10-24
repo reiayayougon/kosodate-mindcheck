@@ -19,7 +19,7 @@ RSpec.describe "Posts", type: :system do
             context 'ログインしている場合' do
                 before do
                     login_with_google
-                    find('.dropdown-orenge img').click
+                    find('.dropdown-red').click
                     click_link '投稿作成'
                 end
 

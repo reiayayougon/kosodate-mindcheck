@@ -6,6 +6,4 @@ class Album < ApplicationRecord
     validates :album_image, presence: true
 
     mount_uploader :album_image, AlbumImageUploader
-
-
 end

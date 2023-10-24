@@ -24,7 +24,7 @@ RSpec.describe "Comments", type: :system do
         end
 
         describe 'コメントの作成' do
-            it 'コメントの作成ができること', turbo: true do 
+            it 'コメントの作成ができること' do 
                 login_with_google
                 visit post_path post
                 fill_in 'comment[content]', with: '新規コメント'
@@ -32,6 +32,7 @@ RSpec.describe "Comments", type: :system do
                 comment = Comment.last
                 within("#comment_#{comment.id}") do
                     expect(page).to have_content(user.name)
+                    sleep(2)
                     expect(page).to have_content('新規コメント')
                 end
             end

@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     before_action :find_commentable, only: %i[edit create]
     before_action :find_comment, only: %i[edit update destroy]
     
-
     def new
         @comment = Comment.new
     end
@@ -17,9 +16,7 @@ class CommentsController < ApplicationController
         end
     end
         
-    def edit
-    
-    end
+    def edit; end
 
     def update
         if @comment.update(comment_params)
@@ -27,16 +24,14 @@ class CommentsController < ApplicationController
         else 
             render :edit
         end
-    end
-
-    
+    end    
 
     def destroy
         @comment.destroy!
         flash.now[:success] = 'コメントを削除しました'    
     end
 
-    private
+  private
 
     def comment_params
         params.require(:comment).permit(:content).merge(user_id: current_user.id)
@@ -52,5 +47,4 @@ class CommentsController < ApplicationController
     def find_comment
         @comment = Comment.includes(:post).find(params[:id])
     end
-    
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :posts do
-    resource :like, only: [:create, :destroy]
+    resource :like, only: %i[create destroy]
     resources :comments, only: %i[new create edit update destroy], shallow: true
     collection do
       get 'search'
@@ -20,9 +20,8 @@ Rails.application.routes.draw do
   end
   resources :questions, only: %i[index new create show] do
     get 'random', on: :collection, to: 'questions#random'
+    get 'start', on: :collection, to: 'questions#start'
     resources :answers, only: %i[create]
   end
-  resources :albums, only: %i[index show new create edit update destroy]
-  
-  
+  resources :albums
 end

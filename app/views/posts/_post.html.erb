@@ -10,18 +10,27 @@
                             </div>
                         </div>
                         <div class="ml-2"><%= post.user.status %>%</div>
+                        <div>
+                            <%=image_tag '6.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
+                        </div>
                     <% elsif post.user.status > 30 %>
                         <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
                             <div class="flex flex-col justify-center overflow-hidden bg-yellow-300 text-xs text-white text-center" role="progressbar" style="width: <%= post.user.status %>%; min-width: 10%;" aria-valuenow="<%= post.user.status %>" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                         <div class="ml-2"><%= post.user.status %>%</div>
+                        <div>
+                            <%=image_tag '5.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
+                        </div>
                     <% else %>
                         <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
                             <div class="flex flex-col justify-center overflow-hidden bg-red-600 text-xs text-white text-center" role="progressbar" style="width: <%= post.user.status %>%; min-width: 10%;" aria-valuenow="<%= post.user.status %>" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                         <div class="ml-2"><%= post.user.status %>%</div>
+                        <div>
+                            <%=image_tag '4.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
+                        </div>
                     <% end %>
                     
                 </div>

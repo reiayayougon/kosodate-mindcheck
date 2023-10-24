@@ -6,19 +6,19 @@ class SessionsController < ApplicationController
         if user.save
             log_in user
             flash[:success] = "ログインしました"
+            redirect_to start_questions_path
         else 
             flash[:danger] = "ログインに失敗しました"
+            redirect_to root_path
         end
-        redirect_to root_path
     end
         
     def destroy
         log_out
-        redirect_to root_path,  status: :see_other, success: 'ログアウトしました'
-        
+        redirect_to root_path, status: :see_other, success: 'ログアウトしました'
     end
     
-    private
+  private
     
     def auth_hash
         request.env['omniauth.auth']
