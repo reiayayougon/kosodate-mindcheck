@@ -9,7 +9,7 @@ RSpec.describe "Questions", type: :system do
                 login_with_google
                 page.set_rack_session(question_history: [], question_id: nil)
                 page.set_rack_session(question_id: question.first.id)
-                visit root_path
+                visit start_questions_path
                 click_link '子育てマインドチェック開始'
             end
 

@@ -17,7 +17,6 @@ RSpec.describe 'Omniauth', type: :system do
                     }
                 )
                 visit root_path
-                execute_script("document.querySelector('div[data-modal-target=\"modal\"]').style.display = 'none';")
                 find('.login').click
                 sleep 1
                 expect(page).to have_content "ログインに失敗しました"
@@ -27,7 +26,6 @@ RSpec.describe 'Omniauth', type: :system do
         context 'emailが取得できた場合' do
             it "google認証でログイン成功" do
                 visit root_path
-                execute_script("document.querySelector('div[data-modal-target=\"modal\"]').style.display = 'none';")
                 find('.login').click
                 sleep 1
                 expect(page).to have_content 'ログインしました'

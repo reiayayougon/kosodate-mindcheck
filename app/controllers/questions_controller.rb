@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[edit update destroy]
   before_action :initialize_session
+  before_action :set_user, only: %i[start]
 
   def new
     @question = Question.new
@@ -44,6 +45,11 @@ class QuestionsController < ApplicationController
 
   def destroy; end
 
+  def start
+    return unless logged_in? && @user.status.zero? 
+    redirect_to albums_path, success: 'ステータスを回復しました'
+  end  
+
   def random
     question_history = session[:question_history] || []
     @question = select_random_question(question_history)
@@ -75,8 +81,6 @@ class QuestionsController < ApplicationController
     selected_question = available_questions.order('RANDOM()').first
     # 選択した質問がnilでないか確認.使用可能な質問がない場合は、全質問の中からランダムに選択
     selected_question || Question.order('RANDOM()').first
-    
-
   end
   
   def initialize_session
@@ -89,5 +93,10 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:content, :user_id, :category_id)
+  end
+
+  def set_user
+    return unless logged_in?
+    @user = User.find(current_user.id)
   end
 end

@@ -1,6 +1,6 @@
 class TopsController < ApplicationController
     skip_before_action :check_logged_in
-    before_action :set_user, only: %i[index]
+    before_action :set_user, only: %i[index top]
 
     def index
         return unless logged_in? && @user.status == 0 

@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
         if user.save
             log_in user
             flash[:success] = "ログインしました"
+            redirect_to start_questions_path
         else 
             flash[:danger] = "ログインに失敗しました"
+            redirect_to root_path
         end
-        redirect_to root_path
     end
         
     def destroy

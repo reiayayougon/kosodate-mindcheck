@@ -15,7 +15,7 @@ RSpec.describe "Profiles", type: :system do
         context 'ログインしている場合' do
             before do
                 login_with_google
-                find('.dropdown-user img').click
+                find('.dropdown-user').click
                 click_link 'プロフィール'
             end
 

@@ -12,7 +12,7 @@ RSpec.describe "Statuses", type: :system do
             login_with_google
             page.set_rack_session(question_history: [], question_id: nil)
             page.set_rack_session(question_id: question.first.id)
-            visit root_path
+            visit start_questions_path
         end
         context 'YESと回答した場合' do
             it 'ステータスが減ること' do
