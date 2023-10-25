@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <%= turbo_include_tags %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1NWSGZLB5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G1NWSGZLB5');
+    </script>
   </head>
 
   <body class="flex-grow overflow-y-auto">
