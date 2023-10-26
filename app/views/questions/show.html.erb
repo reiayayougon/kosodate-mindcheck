@@ -25,11 +25,11 @@
                     </span>
                 <% end %>
                 <div class="grow">
-                    <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @user.name %></span>
+                    <span class="block text-sm font-semibold text-gray-800 dark:text-gray-800"><%= @user.name %></span>
                 </div>
             </div>
     
-            <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700 mt-4">
+            <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-200 mt-4">
                 <% if @user.status > 50 %>
                     
                     <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
