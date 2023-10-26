@@ -1,4 +1,3 @@
-
 <tr id="<%= dom_id post%>" class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800">
     <td class="h-px w-px whitespace-nowrap">
         <a class="block h-full p-6">
@@ -9,7 +8,7 @@
                             <div class="flex flex-col justify-center overflow-hidden bg-blue-500  text-xs text-white text-center" role="progressbar" style="width: <%= post.user.status %>%; min-width: 10%;" aria-valuenow="<%= post.user.status %>" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
-                        <div class="ml-2"><%= post.user.status %>%</div>
+                        <div class="ml-2 dark:text-gray-200"><%= post.user.status %>%</div>
                         <div>
                             <%=image_tag '6.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
                         </div>
@@ -18,7 +17,7 @@
                             <div class="flex flex-col justify-center overflow-hidden bg-yellow-300 text-xs text-white text-center" role="progressbar" style="width: <%= post.user.status %>%; min-width: 10%;" aria-valuenow="<%= post.user.status %>" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
-                        <div class="ml-2"><%= post.user.status %>%</div>
+                        <div class="ml-2 dark:text-gray-200"><%= post.user.status %>%</div>
                         <div>
                             <%=image_tag '5.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
                         </div>
@@ -27,7 +26,7 @@
                             <div class="flex flex-col justify-center overflow-hidden bg-red-600 text-xs text-white text-center" role="progressbar" style="width: <%= post.user.status %>%; min-width: 10%;" aria-valuenow="<%= post.user.status %>" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
-                        <div class="ml-2"><%= post.user.status %>%</div>
+                        <div class="ml-2 dark:text-gray-200"><%= post.user.status %>%</div>
                         <div>
                             <%=image_tag '4.png', class: "left-7 w-10 h-10 border-2 border-gray-300 dark:border-gray-800 rounded-full" %>
                         </div>
@@ -63,7 +62,7 @@
         <div class="flex justify-between">
             <div class="flex flex-col">
                 <span class="block h-full p-6 flex items-center gap-x-3">
-                    <span class="block text-sm text-gray-500" style="color: black;"><%= post.content %></span>
+                    <span class="block text-sm text-gray-700 dark:text-gray-200"><%= post.content %></span>
                     <span class="text-sm text-gray-600 dark:text-gray-400"></span>
                 </span>
                 <div class="flex items-center justify-end">
@@ -79,7 +78,7 @@
                 
                     <%= link_to post_path(post), data: { turbo_frame: "modal"}, class: "comment-icon" do %>
                         <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
-                        <span class="comment-count" style="color: black;"><%= post.comments.count %>
+                        <span class="comment-count dark:text-gray-200"><%= post.comments.count %>
                     <% end %>
                 
             </div>

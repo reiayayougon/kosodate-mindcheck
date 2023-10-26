@@ -12,8 +12,8 @@
                 <%= f.text_area :introduction, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
             </div>
             <div data-controller="preview">
-                <div class="form-group">
-                    <%= f.label :avatar, '画像' %>
+                <div class="form-group dark:text-gray-200">
+                    <%= f.label :avatar, '画像'%>
                     <%= f.file_field :avatar, data: {"preview-target": "file", action: "preview#previewImage" }, accept: 'image/jpg,image/jpeg,image/gif,image/png' %>
                     <div class="mt-3 mb-3">
                         <%= image_tag @user.avatar.url, "data-preview-target": "image", size: '200x200' %>
