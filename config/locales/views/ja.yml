@@ -1,0 +1,61 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    register: '投稿'
+    close: '閉じる'
+    form: 'お問い合わせ'
+    edit: '編集'
+    update: '更新'
+    back: '戻る'
+    cancel: 'キャンセル'
+    status: 'ステータス'
+    message:
+      require_login: 'ログインしてください'
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成できませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
+      status_charge: 'ステータス回復'
+      status_full: "ステータスを回復しました"
+  profiles:
+    show: 
+      title: 'プロフィール'
+    edit: 
+      title: 'プロフィール編集'
+  sessions: 
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  posts:
+    new: 
+      title: '投稿作成'
+    index:
+      title: '投稿一覧'
+      new_post: '投稿する'
+      search_post: 'カテゴリー検索'
+      no_result: '投稿がありません。'
+    search:
+      no_result: '投稿がありません。'
+  albums:
+    new: 
+      title: 'アルバム作成'
+    index:
+      title: 'みんなのアルバム'
+    show: 
+      title: 'タイトル'
+      introduction: '内容'
+  questions:
+    new: 
+      title: '質問作成'
+    start:
+      title: 'マインドチェック'
+  tops:
+    privacy: 
+      title: 'プライバシーポリシー'
+    terms:
+      title: '利用規約'

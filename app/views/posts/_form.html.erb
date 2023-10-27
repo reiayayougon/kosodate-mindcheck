@@ -1,35 +1,29 @@
 <%= form_with model: post, local: true, data: { turbo: false } do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
-    
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <h2 class="text-xl text-gray-800 font-bold sm:text-3xl dark:text-white font">
-                    投稿作成
+                    <%= t('posts.new.title') %>
                 </h2>
             </div>
-
             <!-- Card -->
             <div class="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-gray-800 dark:border-gray-700">
                 <form>
                     <div class="mb-4 sm:mb-8">
-                        <%= f.label :category, 'カテゴリー', class: "block mb-2 text-sm font-bold dark:text-white" %>
+                        <%= f.label :category, Post.human_attribute_name(:category), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <%= f.collection_select(:category_id,  Category.all, :id, :name, { :prompt  => '選択してください' }, { :class  => "py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"}) %> 
-                    
-                    
                     </div>
-
                     <div>
-                        <%= f.label :content, '内容', class: "block mb-2 text-sm font-bold dark:text-white" %>
+                        <%= f.label :content, Post.human_attribute_name(:content), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <div class="mt-1">
                             <%= f.text_area :content, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400", row: "3" %>
                         </div>
                     </div>
-
-                    
-
                     <div class="mt-6 grid">
-                        <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800">投稿</button>
+                        <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800">
+                            <%= t('defaults.register') %>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -37,4 +31,4 @@
         </div>
     </div>
 <% end %>
-    <!-- End Comment Form -->
+<!-- End Comment Form -->

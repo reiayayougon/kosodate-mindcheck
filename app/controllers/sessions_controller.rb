@@ -5,17 +5,17 @@ class SessionsController < ApplicationController
         user = User.find_or_create_from_auth_hash(auth_hash)
         if user.save
             log_in user
-            flash[:success] = "ログインしました"
-            redirect_to start_questions_path
+            redirect_to start_questions_path, success: t('.success')
+            
         else 
-            flash[:danger] = "ログインに失敗しました"
+            flash[:error] =  t('.fail')
             redirect_to root_path
         end
     end
         
     def destroy
         log_out
-        redirect_to root_path, status: :see_other, success: 'ログアウトしました'
+        redirect_to root_path, success: t('.success')
     end
     
   private

@@ -10,10 +10,9 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to new_question_path
-      flash[:success] = "質問を作成しました"
+      redirect_to new_question_path, success: t('defaults.message.created', item: Question.model_name.human)
     else
-      flash.now[:danger] = "質問作成に失敗しました"
+      flash.now[:error] = t('defaults.message.not_created', item: Question.model_name.human)
       render new_question_path
     end
   end
@@ -36,9 +35,9 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to new_question_path, success: '質問を変更しました'
+      redirect_to new_question_path, success: t('defaults.message.updated', item: Question.model_name.human)
     else
-      flash.now[:danger] = "更新に失敗しました"
+      flash.now[:danger] = t('defaults.message.not_updated', item: Question.model_name.human)
       render new_question_path
     end
   end
@@ -47,7 +46,7 @@ class QuestionsController < ApplicationController
 
   def start
     return unless logged_in? && @user.status.zero? 
-    redirect_to albums_path, success: 'ステータスを回復しました'
+    redirect_to albums_path, success: t('defaults.message.status_full')
   end  
 
   def random

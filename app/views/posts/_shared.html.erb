@@ -1,11 +1,10 @@
 <div>
     <div class="flex items-center justify-center mt-8">
         <%= link_to request.referer, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800" do %>
-            戻る
+            <%= t('defaults.back') %>
         <% end %>
     </div>
 </div>
-
 <!-- Table Section -->
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
     <!-- Card -->
@@ -13,38 +12,34 @@
         <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 min-w-full inline-block align-middle">
                 <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
-
                     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                         <thead class="bg-gray-50 dark:bg-slate-800">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left">
                                     <div class="flex items-center gap-x-2">
                                         <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                            ステータス
+                                            <%= t('defaults.status') %>
                                         </span>
                                     </div>
                                 </th>
-
                                 <th scope="col" class="px-6 py-3 text-left">
                                     <div class="flex items-center gap-x-2">
                                         <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                            ユーザー
+                                            <%= t('activerecord.models.user') %>
                                         </span>
                                     </div>
                                 </th>
-
                                 <th scope="col" class="px-6 py-3 text-left">
                                     <div class="flex items-center gap-x-2">
                                         <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                            投稿
+                                            <%= t('activerecord.models.post') %>
                                         </span>
                                     </div>
                                 </th>
-
                                 <th scope="col" class="px-6 py-3 text-left">
                                     <div class="flex items-center gap-x-2">
                                         <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                            カテゴリー
+                                            <%= t('activerecord.models.category') %>
                                         </span>
                                     </div>
                                 </th>

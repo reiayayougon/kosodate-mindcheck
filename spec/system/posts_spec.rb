@@ -35,7 +35,7 @@ RSpec.describe "Posts", type: :system do
                 it '投稿の作成に失敗すること' do
                     fill_in '内容', with: "本文"
                     click_button '投稿'
-                    expect(page).to have_content('作成に失敗しました')
+                    expect(page).to have_content('投稿を作成できませんでした')
                 end
             end
         end   

@@ -27,7 +27,7 @@ RSpec.describe "Albums", type: :system do
                 fill_in 'タイトル', with: ''
                 fill_in '内容', with: '内容'
                 click_button '投稿'
-                expect(page).to have_content('アルバムの作成に失敗しました')
+                expect(page).to have_content('アルバムを作成できませんでした')
             end
 
             it '画像の詳細が見れること' do

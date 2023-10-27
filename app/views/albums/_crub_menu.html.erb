@@ -8,7 +8,7 @@
 <%= button_to album_path(album),
     method: :delete,
     id: "button-delete-#{album.id}", 
-    form: { data: { turbo_confirm: "本当に削除しますか？" }} do %>   
+    form: { data: { turbo_confirm: t('defaults.message.delete_confirm') }} do %>   
     <span class="icon-link">
         <i class="fa-solid fa-trash" style="color: #adafb3;"></i>
     </span>   

@@ -4,7 +4,7 @@ class TopsController < ApplicationController
 
     def index
         return unless logged_in? && @user.status == 0 
-        redirect_to albums_path, success: 'ステータスを回復しました'
+        redirect_to albums_path
     end
 
     def privacy; end

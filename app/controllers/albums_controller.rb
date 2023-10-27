@@ -6,7 +6,7 @@ class AlbumsController < ApplicationController
         if current_user.status <= 0
             current_user.reset_status
             current_user.update(status: 100)
-            flash[:success] = "ステータスを回復しました"
+            flash[:success] = t('defaults.message.status_full')
         end
         @albums = Album.all
     end
@@ -20,9 +20,9 @@ class AlbumsController < ApplicationController
     def create
         @album = current_user.albums.build(album_params)
         if @album.save
-            redirect_to albums_path, success: 'アルバムを作成しました'
+            redirect_to albums_path, success: t('defaults.message.created', item: Album.model_name.human)
         else
-            flash.now[:error] = "アルバムの作成に失敗しました"
+            flash.now[:error] = t('defaults.message.not_created', item: Album.model_name.human)
             render :new, status: :unprocessable_entity
         end
     end
@@ -31,17 +31,16 @@ class AlbumsController < ApplicationController
     
     def update
         if @album.update(album_params)
-            flash[:success] = 'アルバムを更新しました'
-            redirect_to albums_path
+            redirect_to albums_path, success: t('defaults.message.updated', item: Album.model_name.human)
         else
-            flash.now[:danger] = "更新に失敗しました"
+            flash.now[:error] = t('defaults.message.not_updated', item: Album.model_name.human)
             render :edit, status: :unprocessable_entity
         end
     end
 
     def destroy
         @album.destroy!
-        flash.now[:success] = "アルバムを削除しました"
+        flash.now[:success] = t('defaults.message.deleted', item: Album.model_name.human)
     end
 
   private

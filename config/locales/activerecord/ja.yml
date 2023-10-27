@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      post: '投稿'
+      album: 'アルバム'
+      question: '質問'
+      answer: '回答'
+      category: 'カテゴリー'
+      comment: 'コメント'
+      like: 'いいね'
+    attributes: 
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        avatar: 'アバター'
+        introduction: '自己紹介'
+        status: 'ステータス'
+      album:
+        title: 'タイトル'
+        introduction: '内容'
+        album_image: '画像'
+      comment:
+        content: '内容'
+      post: 
+        content: '内容'
+        category: 'カテゴリー'
+      question:
+        content: '内容'
+        category: 'カテゴリー'
+        
+        
+
+
+      
+
+
+
