@@ -5,7 +5,7 @@
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
                 <h2 class="text-xl text-gray-800 font-bold sm:text-3xl dark:text-white font">
-                    アルバム作成
+                    <%= t('albums.new.title') %>
                 </h2>
             </div>
 
@@ -13,18 +13,18 @@
             <div class="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-gray-800 dark:border-gray-700">
                 <form>
                     <div class="mb-4 sm:mb-8">
-                        <%= f.label :title, 'タイトル', class: "block mb-2 text-sm font-bold dark:text-white" %>
+                        <%= f.label :title, Album.human_attribute_name(:title), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <%= f.text_field :title, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400", row: "3" %> 
                     </div>
 
                     <div>
-                        <%= f.label :introduction, '内容', class: "block mb-2 text-sm font-bold dark:text-white" %>
+                        <%= f.label :introduction, Album.human_attribute_name(:introduction), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <%= f.text_area :introduction, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400", row: "3" %>
                     </div>
                     
                     <div data-controller="preview">
                         <div class="form-group">
-                            <%= f.label :album_image, '画像', class: "block mb-2 text-sm font-bold dark:text-white" %>
+                            <%= f.label :album_image, Album.human_attribute_name(:album_image), class: "block mb-2 text-sm font-bold dark:text-white" %>
                             <%= f.file_field :album_image, data: {"preview-target": "file", action: "preview#previewImage" } %>
                             <div class="mt-3 mb-3">
                                 <%= image_tag album.album_image.url, "data-preview-target": "image", size: '200x200' %>
@@ -32,7 +32,9 @@
                         </div>
                     </div>
                     <div class="mt-6 grid">
-                        <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800">投稿</button>
+                        <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-yellow-500 text-white hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800">
+                            <%= t('defaults.register') %>
+                        </button>
                     </div>
                 </form>
             </div>

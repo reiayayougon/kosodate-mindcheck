@@ -18,9 +18,9 @@ class PostsController < ApplicationController
       category_id = params[:post][:category_id]
       category = Category.find(category_id)
       @post.category = category
-      redirect_to posts_path, success: '投稿を作成しました'
+      redirect_to posts_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
-      flash.now[:error] = "作成に失敗しました"
+      flash.now[:error] = t('defaults.message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -35,17 +35,16 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:success] = '投稿を更新しました'
-      redirect_to posts_path
+      redirect_to posts_path, success: t('defaults.message.updated', item: Post.model_name.human)
     else
-      flash.now[:danger] = "更新に失敗しました"
+      flash.now[:error] = t('defaults.message.not_updated', item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy!
-    flash.now[:success] = "投稿を削除しました"
+    flash.now[:success] = t('defaults.message.deleted', item: Post.model_name.human)
   end
   
   def likes

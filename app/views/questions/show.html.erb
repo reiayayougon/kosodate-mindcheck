@@ -1,11 +1,10 @@
 <div class="md:container md:mx-auto mt-8">
     <% if @user.status <= 0 %>
         <%= link_to albums_path, class: "py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800 font mb-4", data: { turbo: false } do%>
-            ステータス回復
+            <%= t('defaults.status_charge') %>
         <% end %>
     <% end %>
 </div>
-    
 <div class="border bg-white border-gray-300 p-8 rounded-lg">
     <div class="flex flex-wrap justify-between items-center">
         <div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
@@ -28,10 +27,8 @@
                     <span class="block text-sm font-semibold text-gray-800 dark:text-gray-800"><%= @user.name %></span>
                 </div>
             </div>
-    
             <div class="flex w-full h-4 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-200 mt-4">
                 <% if @user.status > 50 %>
-                    
                     <div class="flex flex-col justify-center overflow-hidden bg-blue-500 text-xs text-white text-center" role="progressbar" style="width: <%= @user.status %>%; min-width: 10%;" aria-valuenow="<%= @user.status %>" aria-valuemin="0" aria-valuemax="100">
                         <%= @user.status >= 0 ? @user.status : 0 %>
                     </div>

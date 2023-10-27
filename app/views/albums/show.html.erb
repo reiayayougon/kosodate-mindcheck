@@ -5,9 +5,9 @@
                 <%= image_tag @album.album_image.url, class: "h-full w-full object-cover object-center group-hover:opacity-75"%>
             </div>
             <div class="font-bold mt-4 font">
-                <p class="text-xl">タイトル</p>
+                <p class="text-xl"><%= t('albums.show.title') %></p>
                 <p class="text-gray-600"><%= @album.title %></p>
-                <p class="mt-2 text-xl">内容</p>
+                <p class="mt-2 text-xl"><%= t('albums.show.introduction') %></p>
                 <p class="text-gray-600"><%= @album.introduction %></p>
             </div>
             <div class="block h-full p-6 flex items-center gap-x-3">

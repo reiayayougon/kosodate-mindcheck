@@ -1,18 +1,17 @@
-
 <%= turbo_frame_tag "modal" do %>
-    <div id="flash" class="flash">
-        <%= render 'shared/flash_message' %>
-    </div>
     <div class="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto" data-controller="comment-modal" data-comment-modal-target="modal">
         <div class="fixed inset-0 bg-black opacity-50"></div>
         <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
-            <div class="modal-content">
+            <div class="modal-content max-h-screen overflow-y-auto">
                 <!-- モーダルのコンテンツ -->
-                <%= yield %>        
+                <%= yield %>  
+                <div id="flash" class="flash">
+                    <%= render 'shared/flash_message' %>
+                </div>     
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                 <!-- モーダル閉じるボタン -->
                     <button type="button" data-action="click->comment-modal#close"  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        閉じる
+                        <%= t('defaults.close') %>
                     </button>
                 </div>
             </div>

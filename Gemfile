@@ -106,3 +106,6 @@ gem "debug", require: false
 
 #環境変数
 gem 'dotenv-rails'
+
+#言語
+gem 'rails-i18n'

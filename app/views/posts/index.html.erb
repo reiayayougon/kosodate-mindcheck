@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "comment-list" do %> 
     <div data-controller="comment-modal">
-<!-- Table Section -->
+        <!-- Table Section -->
         <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
             <!-- Card -->
             <div class="flex flex-col">
@@ -21,11 +21,11 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <%= f.submit "カテゴリ検索", class: "ml-3 bg-gray-300 hover:bg-gray-500 text-black font-bold py-2 px-4 rounded font" %>
+                                        <%= f.submit t('.search_post'), class: "ml-3 bg-gray-300 hover:bg-gray-500 text-black font-bold py-2 px-4 rounded font" %>
                                     <% end %>
                                 </div>
                                 <div>
-                                    <%= link_to '投稿する', new_post_path, data: { turbo_frame: "modal" }, class: "py-3 px-4 inline-flex justify-center items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
+                                    <%= link_to t('.new_post'), new_post_path, data: { turbo_frame: "modal" }, class: "py-3 px-4 inline-flex justify-center items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
                                 </div>
                             </div>
                             <!-- End Input -->
@@ -37,7 +37,7 @@
                                         <th scope="col" class="px-6 py-3 text-left">
                                             <div class="flex items-center gap-x-2">
                                                 <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                    ステータス
+                                                    <%= t('defaults.status') %>
                                                 </span>
                                             </div>
                                         </th>
@@ -45,7 +45,7 @@
                                         <th scope="col" class="px-6 py-3 text-left">
                                             <div class="flex items-center gap-x-2">
                                                 <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                    ユーザー
+                                                    <%= t('activerecord.models.user') %>
                                                 </span>
                                             </div>
                                         </th>
@@ -53,7 +53,7 @@
                                         <th scope="col" class="px-6 py-3 text-left">
                                             <div class="flex items-center gap-x-2">
                                                 <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                    投稿
+                                                    <%= t('activerecord.models.post') %>
                                                 </span>
                                             </div>
                                         </th>
@@ -61,7 +61,7 @@
                                         <th scope="col" class="px-6 py-3 text-left">
                                             <div class="flex items-center gap-x-2">
                                                 <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                    カテゴリー
+                                                    <%= t('activerecord.models.category') %>
                                                 </span>
                                             </div>
                                         </th>
@@ -71,14 +71,12 @@
                                     <% if @posts.present? %>
                                         <%= render @posts %>
                                     <% else %>
-                                        <p>投稿はありません</p>  
+                                        <p><%= t('.no_result') %></p>  
                                     <% end %>
                                 </tbody>
                             </table> 
                             <!-- End Table -->
                             <!-- Footer -->
-
-                            
                             <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
                                 <%= paginate @posts %> 
                             </div>

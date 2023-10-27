@@ -41,22 +41,17 @@
                             <% end %>
                         </li>
                 
-
-                            
                         <li class="list-inline-item">
-
                             <%= button_to comment_path(comment),
                                 class: 'js-delete-comment-button', 
                                 id: "button-delete-#{comment.id}", 
                                 method: :delete,
-                                form: { data: { turbo_confirm: "本当に削除しますか？" }} do %>
-                            
+                                form: { data: { turbo_confirm: t('defaults.message.delete_confirm') }} do %>
                                     <i class="fa-solid fa-trash"></i>
                             <% end %>
                         </li> 
                     </ul>
                 <% end %>
-        
             </td>
         </tr> 
     </tbody>

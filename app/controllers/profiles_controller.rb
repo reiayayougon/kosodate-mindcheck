@@ -8,10 +8,10 @@ class ProfilesController < ApplicationController
     def update
         if @user.update(user_params)
             redirect_to profile_path
-            flash[:success] = 'プロフィールを更新しました'
+            flash[:success] = t('defaults.message.updated', item: t('profiles.show.title'))
             
         else
-            flash.now[:danger] = '更新できませんでした'
+            flash.now[:error] = t('defaults.message.not_updated', item: t('profiles.show.title'))
             render :edit
         end
     end

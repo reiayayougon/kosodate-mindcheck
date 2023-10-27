@@ -23,7 +23,7 @@ RSpec.describe "Profiles", type: :system do
                 fill_in '名前', with: '名前1'
                 fill_in '自己紹介', with: '自己紹介1'
                 file_path = Rails.root.join('spec', 'fixtures', 'example.jpg')
-                attach_file "画像", file_path
+                attach_file "アバター", file_path
                 expect(page).to have_selector("img[src^='data:image/jpeg;base64,']")
                 click_button '更新'
                 expect(page).to have_content('プロフィールを更新しました')
@@ -36,10 +36,10 @@ RSpec.describe "Profiles", type: :system do
                 fill_in '名前', with: ''
                 fill_in '自己紹介', with: '自己紹介1'
                 file_path = Rails.root.join('spec', 'fixtures', 'example.jpg')
-                attach_file "画像", file_path
+                attach_file "アバター", file_path
                 expect(page).to have_selector("img[src^='data:image/jpeg;base64,']")
                 click_button '更新'
-                expect(page).to have_content("Name can't be blank")
+                expect(page).to have_content("プロフィールを更新できませんでした")
             end
         end
     end   

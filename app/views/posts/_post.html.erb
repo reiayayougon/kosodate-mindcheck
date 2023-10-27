@@ -71,27 +71,20 @@
                     <% end %>
                 </div>
             </div>
-
             <div class="flex items-center">
-                
                 <%= render 'like_button', post: post %>
-                
-                    <%= link_to post_path(post), data: { turbo_frame: "modal"}, class: "comment-icon" do %>
-                        <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
-                        <span class="comment-count dark:text-gray-200"><%= post.comments.count %>
-                    <% end %>
-                
+                <%= link_to post_path(post), data: { turbo_frame: "modal"}, class: "comment-icon" do %>
+                    <i class="fa-regular fa-comment" style="color: #adafb3;"></i>
+                    <span class="comment-count dark:text-gray-200"><%= post.comments.count %>
+                <% end %>
             </div>
         </div>
     </td>
-    
     <td class="h-px w-px whitespace-nowrap">
-        <%# <a class="block h-full p-6" href="#"> %>
-            <%= link_to category_posts_path(category_id: post.category.id), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
-                <span class="<%= translation_class_name(post.category.name) %> inline-flex items-center gap-1.5 py-2 px-2 rounded-full text-xs font-medium bg-green-100 text-black-800 dark:bg-green-900 dark:text-green-200" style="color: black;">
-                    <%= post.category.name %>
-                </span>
-            <% end %>
-        <%# </a> %>
+        <%= link_to category_posts_path(category_id: post.category.id), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+            <span class="<%= translation_class_name(post.category.name) %> inline-flex items-center gap-1.5 py-2 px-2 rounded-full text-xs font-medium bg-green-100 text-black-800 dark:bg-green-900 dark:text-green-200" style="color: black;">
+                <%= post.category.name %>
+            </span>
+        <% end %>
     </td>
 </tr>
