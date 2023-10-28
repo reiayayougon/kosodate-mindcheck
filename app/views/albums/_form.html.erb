@@ -1,14 +1,12 @@
 <%= form_with model: @album, local: true, data: { turbo: false } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>  
-    
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="mx-auto max-w-2xl">
             <div class="text-center">
-                <h2 class="text-xl text-gray-800 font-bold sm:text-3xl dark:text-white font">
+                <h2 class="text-xl text-gray-800 font-bold sm:text-3xl dark:text-gray-800 font">
                     <%= t('albums.new.title') %>
                 </h2>
             </div>
-
             <!-- Card -->
             <div class="mt-5 p-4 relative z-10 bg-white border rounded-xl sm:mt-10 md:p-10 dark:bg-gray-800 dark:border-gray-700">
                 <form>
@@ -16,12 +14,10 @@
                         <%= f.label :title, Album.human_attribute_name(:title), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <%= f.text_field :title, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400", row: "3" %> 
                     </div>
-
                     <div>
                         <%= f.label :introduction, Album.human_attribute_name(:introduction), class: "block mb-2 text-sm font-bold dark:text-white" %>
                         <%= f.text_area :introduction, class: "py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 sm:p-4 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400", row: "3" %>
                     </div>
-                    
                     <div data-controller="preview">
                         <div class="form-group">
                             <%= f.label :album_image, Album.human_attribute_name(:album_image), class: "block mb-2 text-sm font-bold dark:text-white" %>
@@ -42,4 +38,4 @@
         </div>
     </div>
 <% end %>
-    <!-- End Comment Form -->
+<!-- End Comment Form -->

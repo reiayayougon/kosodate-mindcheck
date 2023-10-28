@@ -60,10 +60,10 @@
         </div>
     </div>
 </div>
-<div data-controller="modal" class="text-center">
-    <div data-modal-target="modal" class="fixed inset-0 flex items-center justify-center z-50">
+<div data-controller="comment-modal" data-comment-modal-target="modal" class="text-center">
+    <div class="fixed inset-0 flex items-center justify-center z-50">
         <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
-            <div class="modal-content">
+            <div class="modal-content" data-comment-modal-target="content">
                 <div data-controller="slider">
                     <div class="swiper" data-slider-target="container">
                         <div class="swiper-wrapper">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <button data-action="click->modal#hide" data-turbo-frame="modal" ><i class="fa-solid fa-xmark"></i></button>
+            <button data-action="click->comment-modal#close" data-turbo-frame="modal" ><i class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 </div>
