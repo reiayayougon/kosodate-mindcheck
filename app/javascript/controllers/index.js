@@ -7,9 +7,6 @@ import { application } from "./application"
 import CommentModalController from "./comment_modal_controller"
 application.register("comment-modal", CommentModalController)
 
-import ModalController from "./modal_controller"
-application.register("modal", ModalController)
-
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 

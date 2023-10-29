@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "modal" do %>
     <div class="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto" data-controller="comment-modal" data-comment-modal-target="modal">
         <div class="fixed inset-0 bg-black opacity-50"></div>
-        <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50">
+        <div class="modal-container bg-white w-96 p-4 rounded-lg shadow-lg z-50" data-comment-modal-target="content">
             <div class="modal-content max-h-screen overflow-y-auto">
                 <!-- モーダルのコンテンツ -->
                 <%= yield %>  
