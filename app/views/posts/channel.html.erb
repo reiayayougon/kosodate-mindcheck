@@ -1,0 +1,14 @@
+<div class="channel bg-green-50" style="background-image: url(<%= asset_path('channel_04.png') %>)">
+    <div class="flex justify-center">
+        <form class="mt-6">
+            <%= label_tag :content, '', class: 'block text-gray-700' %>
+            <input type="text" data-behavior="room_speaker" class="py-2 px-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" placeholder="メッセージ入力">
+        </form>
+    </div>
+    <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+        <div id='messages' data-room_id="<%= @room.id %>" class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+            <%= render @messages %>
+        </div>
+    </div>
+    
+</div>

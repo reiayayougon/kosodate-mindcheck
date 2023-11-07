@@ -39,6 +39,7 @@ ja:
       new_post: '投稿する'
       search_post: 'カテゴリー検索'
       no_result: '投稿がありません。'
+      post_ch: '投稿チャンネル'
     search:
       no_result: '投稿がありません。'
   albums:
