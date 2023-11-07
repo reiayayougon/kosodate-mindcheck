@@ -124,3 +124,7 @@
         white-space: nowrap; /* テキストが折り返されないように設定 */
     }
 }
+
+.channel {
+    background-image: image-url('channel_01.png');
+}

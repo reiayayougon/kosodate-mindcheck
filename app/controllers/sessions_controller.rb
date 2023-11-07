@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     def create
         user = User.find_or_create_from_auth_hash(auth_hash)
         if user.save
+            cookies.encrypted[:user_id] = user.id
             log_in user
             redirect_to start_questions_path, success: t('.success')
             

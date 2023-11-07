@@ -3,6 +3,8 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  
 
   validates :content, presence: true, length: { maximum: 255 }
   validates :user_id, presence: true

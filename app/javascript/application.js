@@ -2,7 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-
 import('preline')
 import('@tailwindcss/aspect-ratio')
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -14,3 +13,5 @@ library.add(fas, far, fab)
 import 'chartkick/highcharts'
 import 'swiper'
 
+import "./channels"
+//= require cable

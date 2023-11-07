@@ -37,7 +37,7 @@
         </a>
     </td>
     <td class="h-px w-px whitespace-nowrap">
-        <%= link_to user_path(post.user), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100",  data: { turbo: false } do %>
+        <%= link_to user_path(post.user), class: "block h-full p-6 flex items-center gap-x-3",  data: { turbo: false } do %>
             <div class="flex items-center gap-x-3"> 
                 <% if post.user.avatar.present? %>
                     <%= image_tag post.user.avatar.url, class: "inline-block h-[2.375rem] w-[2.375rem] rounded-full"%>
@@ -60,9 +60,13 @@
     </td>
     <td class="h-px w-72 min-w-[18rem]">
         <div class="flex justify-between">
-            <div class="flex flex-col">
+            <div class="flex flex-col post">
                 <span class="block h-full p-6 flex items-center gap-x-3">
-                    <span class="block text-sm text-gray-700 dark:text-gray-200"><%= post.content %></span>
+                    <span class="block text-sm text-gray-700 dark:text-gray-200">
+                        <div id="messages" data-post-id="<%= post.id %>">
+                            <%= link_to post.content, channel_post_path(post), data: { turbo: false } %>
+                        </div>
+                    </span>
                     <span class="text-sm text-gray-600 dark:text-gray-400"></span>
                 </span>
                 <div class="flex items-center justify-end">
@@ -83,7 +87,7 @@
         </div>
     </td>
     <td class="h-px w-px whitespace-nowrap">
-        <%= link_to category_posts_path(category_id: post.category.id), class: "block h-full p-6 flex items-center gap-x-3 hover:bg-gray-100" do %>
+        <%= link_to category_posts_path(category_id: post.category.id), class: "block h-full p-6 flex items-center gap-x-3" do %>
             <span class="<%= translation_class_name(post.category.name) %> inline-flex items-center gap-1.5 py-2 px-2 rounded-full text-xs font-medium bg-green-100 text-black-800 dark:bg-green-900 dark:text-green-200" style="color: black;">
                 <%= post.category.name %>
             </span>

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     @selected_category = Category.find(params[:q][:category_id_eq]) if params[:q] && params[:q][:category_id_eq]
     @posts = @q.result(distinct: true).includes(:user, :category).order(created_at: :desc).page(params[:page]).per(5)
+    
   end
 
   def new
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order(created_at: :desc)
+  
   end
 
   def edit; end
@@ -64,6 +66,11 @@ class PostsController < ApplicationController
     category_id = params[:category_id]
     @category = Category.find(category_id)
     @posts = @category.posts.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+  end
+
+  def channel
+    @room = Post.find(params[:id])
+    @messages = @room.messages
   end
 
   private
