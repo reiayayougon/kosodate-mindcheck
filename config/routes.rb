@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   
   resources :posts do
     resource :like, only: %i[create destroy]
-    resources :comments, only: %i[new create edit update destroy], shallow: true
     collection do
       get 'search'
       get 'category/:category_id', action: :category, as: :category
