@@ -63,7 +63,7 @@
             <div class="flex flex-col post">
                 <%# <span class=" p-6 flex items-center gap-x-3"> %>
                 <%= link_to channel_post_path(post), data: { turbo: false }, class: "block h-full p-6 flex items-center gap-x-3" do %>
-                    <span class="text-sm text-gray-700 dark:text-gray-200">
+                    <span class="font-semibold text-brack dark:text-gray-200">
                         <div id="messages" data-post-id="<%= post.id %>">
                             <%= post.content %>
                         </div>
