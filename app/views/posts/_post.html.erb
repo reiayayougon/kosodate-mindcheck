@@ -59,26 +59,31 @@
         <% end %>
     </td>
     <td class="h-px w-72 min-w-[18rem]">
-        <div class="flex justify-between">
+        <%# <div class="flex justify-start"> %>
             <div class="flex flex-col post">
-                <span class="block h-full p-6 flex items-center gap-x-3">
-                    <span class="block text-sm text-gray-700 dark:text-gray-200">
+                <%# <span class=" p-6 flex items-center gap-x-3"> %>
+                <%= link_to channel_post_path(post), data: { turbo: false }, class: "block h-full p-6 flex items-center gap-x-3" do %>
+                    <span class="text-sm text-gray-700 dark:text-gray-200">
                         <div id="messages" data-post-id="<%= post.id %>">
-                            <%= link_to post.content, channel_post_path(post), data: { turbo: false } %>
+                            <%= post.content %>
                         </div>
                     </span>
+                    
+                <% end %>
+                <div class="flex justify-end">
                     <span class="text-sm text-gray-600 dark:text-gray-400"></span>
-                </span>
-                <div class="flex items-center justify-end">
-                    <% if current_user.own?(post) %>
-                        <%= render 'crub_menu', post: post %>
-                    <% end %>
+                        <div class="flex items-center mr-4">
+                            <% if current_user.own?(post) %>
+                                <%= render 'crub_menu', post: post %>
+                            <% end %>
+                        </div>
+                    </span>
+                    <div class="flex items-center mr-4">
+                        <%= render 'like_button', post: post %>
+                    </div>
                 </div>
             </div>
-            <div class="flex items-center">
-                <%= render 'like_button', post: post %>
-            </div>
-        </div>
+        <%# </div> %>
     </td>
     <td class="h-px w-px whitespace-nowrap">
         <%= link_to category_posts_path(category_id: post.category.id), class: "block h-full p-6 flex items-center gap-x-3" do %>
