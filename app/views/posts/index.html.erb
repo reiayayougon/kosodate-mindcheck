@@ -5,7 +5,7 @@
         <div class="flex flex-col">
             <div class="-m-1.5 overflow-x-auto">
                 <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700 font">
                         <!-- Header -->
                         <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
                             <!-- Input -->
@@ -24,6 +24,8 @@
                                 <% end %>
                             </div>
                             <div>
+                                <%= link_to t('albums.new.title'), new_album_path, data: { turbo_frame: "modal" }, class: "mr-4 py-3 px-4 inline-flex gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
+                            
                                 <%= link_to t('.new_post'), new_post_path, data: { turbo_frame: "modal" }, class: "py-3 px-4 inline-flex justify-center items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
                             </div>
                         </div>
@@ -34,28 +36,29 @@
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-left">
                                         <div class="flex items-center gap-x-2">
-                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                 <%= t('defaults.status') %>
                                             </span>
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left">
                                         <div class="flex items-center gap-x-2">
-                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                 <%= t('activerecord.models.user') %>
                                             </span>
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left">
-                                        <div class="flex items-center gap-x-2">
-                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                <%= t('posts.index.post_ch') %> 
+                                        <div class="flex items-center gap-x-2 " >
+                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                                <%= t('activerecord.models.post') %>
                                             </span>
+                                            <%= image_tag 'channel_icon.png', class: "ml-2 w-20 h-20" %>
                                         </div>
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left">
                                         <div class="flex items-center gap-x-2">
-                                            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                                                 <%= t('activerecord.models.category') %>
                                             </span>
                                         </div>
