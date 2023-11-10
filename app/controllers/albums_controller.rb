@@ -3,11 +3,6 @@ class AlbumsController < ApplicationController
     before_action :find_album, only: %i[edit update destroy]
 
     def index
-        if current_user.status <= 0
-            current_user.reset_status
-            current_user.update(status: 100)
-            flash[:success] = t('defaults.message.status_full')
-        end
         @albums = Album.all
     end
 

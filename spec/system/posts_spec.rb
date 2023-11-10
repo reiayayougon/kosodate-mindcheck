@@ -19,8 +19,8 @@ RSpec.describe "Posts", type: :system do
             context 'ログインしている場合' do
                 before do
                     login_with_google
-                    find('.dropdown-red').click
-                    click_link '投稿作成'
+                    visit posts_path
+                    click_link '投稿する'
                 end
 
                 it '投稿が作成できること' do
@@ -44,7 +44,7 @@ RSpec.describe "Posts", type: :system do
                 let(:post_by_others) { create(:post_by_others) }
                 it '編集ボタン・削除ボタンが表示されないこと' do
                     login_with_google
-                    visit post_path(post_by_others)
+                    visit posts_path(post_by_others)
                     expect(page).not_to have_selector("#button-edit-#{post_by_others.id}")
                     expect(page).not_to have_selector("#button-delete-#{post_by_others.id}")
                 end

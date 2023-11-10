@@ -13,5 +13,6 @@ library.add(fas, far, fab)
 import 'chartkick/highcharts'
 import 'swiper'
 
+
 import "./channels"
 //= require cable

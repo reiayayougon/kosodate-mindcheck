@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_06_040915) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_10_004656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,10 +27,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_040915) do
   create_table "answers", force: :cascade do |t|
     t.integer "answer_select", default: 0, null: false
     t.bigint "user_id", null: false
-    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.bigint "post_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
@@ -39,16 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_040915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -80,22 +69,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_040915) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.text "content", null: false
-    t.bigint "category_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_questions_on_category_id"
-    t.index ["user_id"], name: "index_questions_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "avatar"
     t.string "introduction"
-    t.integer "status", default: 100
+    t.integer "status", default: 0
     t.datetime "status_reset_at"
     t.string "image"
     t.datetime "created_at", null: false
@@ -104,15 +83,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_06_040915) do
   end
 
   add_foreign_key "albums", "users"
-  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "posts"
   add_foreign_key "answers", "users"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "posts"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
-  add_foreign_key "questions", "categories"
-  add_foreign_key "questions", "users"
 end

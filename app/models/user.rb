@@ -2,8 +2,6 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
-    has_many :questions, dependent: :destroy
-    has_many :answers, dependent: :destroy
     has_many :answers, dependent: :destroy
     has_many :albums, dependent: :destroy
     has_many :messages, dependent: :destroy
@@ -50,18 +48,9 @@ class User < ApplicationRecord
         liked_posts.include?(post)
     end
 
-    def reset_status
-        self.update(status_reset_at: Time.now)
-    end
-
     def calculate_status
-        if status_reset_at.nil?
-            self.status = 100 - answers.yes_count
-        else
-            reset_answers = answers.where('created_at >= ?', status_reset_at)
-            self.status = 100 - reset_answers.yes_count
-        end  
-        save
+        puts "status before save: #{status}"
+        save!
     end
 
     def has_yes?
