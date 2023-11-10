@@ -1,21 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[edit update destroy]
   before_action :initialize_session
   before_action :set_user, only: %i[start]
-
-  def new
-    @question = Question.new
-  end
-
-  def create
-    @question = current_user.questions.build(question_params)
-    if @question.save
-      redirect_to new_question_path, success: t('defaults.message.created', item: Question.model_name.human)
-    else
-      flash.now[:error] = t('defaults.message.not_created', item: Question.model_name.human)
-      render new_question_path
-    end
-  end
 
   def show
     post_history = session[:post_history] || []
@@ -26,21 +11,10 @@ class QuestionsController < ApplicationController
     @user = current_user
     current_user.calculate_status
     @user_with_most_yes_answers = Post.user_with_most_yes_answers.first
-
   end
 
   def edit; end
 
-  def update
-    if @question.update(question_params)
-      redirect_to new_question_path, success: t('defaults.message.updated', item: Question.model_name.human)
-    else
-      flash.now[:danger] = t('defaults.message.not_updated', item: Question.model_name.human)
-      render new_question_path
-    end
-  end
-
-  def destroy; end
 
   def start
     return unless logged_in? && @user.status.zero? 
@@ -86,10 +60,6 @@ class QuestionsController < ApplicationController
 
   def find_question
     @post = current_user.posts.find(params[:id])
-  end
-
-  def question_params
-    params.require(:question).permit(:content, :user_id, :category_id)
   end
 
   def set_user

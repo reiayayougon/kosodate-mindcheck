@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
     resources :answers, only: %i[create]
   end
-  resources :questions, only: %i[index new create show] do
+  resources :questions, only: %i[show] do
     get 'random', on: :collection, to: 'questions#random'
     get 'start', on: :collection, to: 'questions#start'
   end
