@@ -3,8 +3,7 @@ class TopsController < ApplicationController
     before_action :set_user, only: %i[index top]
 
     def index
-        return unless logged_in? && @user.status == 0 
-        redirect_to albums_path
+        return unless logged_in? 
     end
 
     def privacy; end

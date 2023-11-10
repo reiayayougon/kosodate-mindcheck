@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :email, null: false, index: { unique: true }
       t.string :avatar
       t.string :introduction
-      t.integer :status, default: "100"
+      t.integer :status, default: "0"
       t.datetime :status_reset_at
       t.string :image
 

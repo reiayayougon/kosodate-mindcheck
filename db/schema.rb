@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_004656) do
     t.string "email", null: false
     t.string "avatar"
     t.string "introduction"
-    t.integer "status", default: 100
+    t.integer "status", default: 0
     t.datetime "status_reset_at"
     t.string "image"
     t.datetime "created_at", null: false

@@ -17,8 +17,7 @@ class QuestionsController < ApplicationController
 
 
   def start
-    return unless logged_in? && @user.status.zero? 
-    redirect_to albums_path, success: t('defaults.message.status_full')
+    return unless logged_in? 
   end  
 
   def random
