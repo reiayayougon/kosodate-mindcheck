@@ -1,5 +1,6 @@
 <%= link_to edit_album_path(album), 
     id: "button-edit-#{album.id}",
+    class: "mr-4",
     data: { turbo_frame: "modal" } do %>
     <span class="icon-link">
         <i class="fa-solid fa-pen" style="color: #adafb3;"></i>
@@ -8,6 +9,7 @@
 <%= button_to album_path(album),
     method: :delete,
     id: "button-delete-#{album.id}", 
+    class: "mr-4",
     form: { data: { turbo_confirm: t('defaults.message.delete_confirm') }} do %>   
     <span class="icon-link">
         <i class="fa-solid fa-trash" style="color: #adafb3;"></i>

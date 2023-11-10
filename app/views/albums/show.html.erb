@@ -28,6 +28,11 @@
                     <span class="text-sm font-semibold text-gray-800 dark:text-gray-200"><%= @album.user.name %></span>
                 </div>
             </div>
+            <div class="flex items-center justify-end">
+                <% if current_user.own?(@album) %>
+                    <%= render 'crub_menu', album: @album %>
+                <% end %>
+            </div>
         </div>
     <% end %>
 </turbo-frame>

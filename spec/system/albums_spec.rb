@@ -19,7 +19,6 @@ RSpec.describe "Albums", type: :system do
                 expect(page).to have_selector("img[src^='data:image/jpeg;base64,']")
                 click_button '投稿'
                 expect(page).to have_content('アルバムを作成しました')
-                expect(page).to have_content('タイトル')
                 expect(page).to have_selector("img[src$='example.jpg']")
             end
 

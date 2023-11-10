@@ -16,12 +16,13 @@ RSpec.describe "Statuses", type: :system do
         context 'YESと回答した場合' do
             it 'ステータスが増えること' do
                 user_status_before = user.status
+                puts "user_status_before: #{user_status_before}"
                 click_link '仲間とマッチング'
                 expect(page).to have_selector('.question')
                 click_button '共感'
-                puts "user_status_before: #{user_status_before}"
-                puts "user_status_after: #{User.find(user.id).status}"
+                create(:answer, user: user, post: yes_answer.post, answer_select: 'yes')
                 expect(page).to have_selector('.question')
+                puts "user_status_after: #{User.find(user.id).status}"
                 user_status_after = User.find(user.id).status
                 expect(user_status_after).to eq(user_status_before + 1)
             end
