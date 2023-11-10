@@ -2,47 +2,49 @@ require 'rails_helper'
 
 RSpec.describe "Questions", type: :system do
     let(:user) { create(:user) }
-    let(:question) { create_list(:question, 10) }
+    let!(:post) { create_list(:post, 10) }
+    let!(:yes_answer) { create(:yes_answer) }
+    let!(:no_answer) { create(:no_answer) }
     describe '質問の表示' do
         context 'ログインしている場合' do
             before do
                 login_with_google
-                page.set_rack_session(question_history: [], question_id: nil)
-                page.set_rack_session(question_id: question.first.id)
+                page.set_rack_session(post_history: [], post_id: nil)
+                page.set_rack_session(post_id: post.first.id)
                 visit start_questions_path
-                click_link '子育てマインドチェック開始'
+                click_link '仲間とマッチング'
             end
 
             it '質問が出題されること' do
                 expect(page).to have_selector('.question')
-                click_button 'YES'
-                expect(page.get_rack_session['question_history']).not_to be_empty
+                click_button '共感'
+                expect(page.get_rack_session['post_history']).not_to be_empty
             end
 
             it 'ランダムに10問質問が出題されること' do
-                question_history = []
+                post_history = []
                 10.times do
                     # 質問表示
                     expect(page).to have_selector('.question')
                     # 回答
-                    click_button 'YES'
+                    click_button '共感'
                     # 質問履歴に質問IDが追加されていることを確認
-                    question_history << Question.last.id
+                    post_history << Post.last.id
                     # 質問履歴が10問以上になった場合、古い履歴が削除されていることを検証
-                    if question_history.size > 10
-                        expect(question_history.size).to eq(10)
+                    if post_history.size > 10
+                        expect(post_history.size).to eq(10)
                     end
                 end
             end
 
             it '同じ質問が出題されないこと' do
-                question_history = []
+                post_history = []
                 10.times do
-                    current_question = find('.question').text
+                    current_post = find('.question').text
                     # 選択された質問がすでにリストに含まれていないことを確認
-                    expect(question_history).not_to include(current_question)
-                    question_history << Question.last.id
-                    click_button 'YES'
+                    expect(post_history).not_to include(current_post)
+                    post_history << Post.last.id
+                    click_button '共感'
                 end
             end
         end

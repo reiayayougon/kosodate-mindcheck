@@ -13,6 +13,6 @@ FactoryBot.define do
         factory :no_answer, traits: [:no]
     
         association :user, factory: :user
-        association :question, factory: :question
+        association :post, factory: :post
     end
 end
