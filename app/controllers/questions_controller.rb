@@ -18,17 +18,15 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    question_history = session[:question_history] || []
+    post_history = session[:post_history] || []
     session.delete(:answered_count)
-    session.delete(:question_history)
+    session.delete(:post_history)
     puts "回答数: #{session[:answered_count]}" 
-    puts "質問履歴: #{question_history.inspect}"
+    puts "質問履歴: #{post_history.inspect}"
     @user = current_user
     current_user.calculate_status
-    @user_answer_counts = @user.answers.where(answer_select: "yes")
-      .joins(question: :category)
-      .group("categories.name")
-      .count
+    @user_with_most_yes_answers = Post.user_with_most_yes_answers.first
+
   end
 
   def edit; end
@@ -50,44 +48,44 @@ class QuestionsController < ApplicationController
   end  
 
   def random
-    question_history = session[:question_history] || []
-    @question = select_random_question(question_history)
+    post_history = session[:post_history] || []
+    @post = select_random_post(post_history)
     @answer = Answer.new
     current_user.calculate_status
-    session[:question_history] << @question.id
+    session[:post_history] << @post.id
 
-    if session[:question_history].size > 10
-      session[:question_history].shift(session[:question_history].size - 10)
+    if session[:post_history].size > 10
+      session[:post_history].shift(session[:post_history].size - 10)
     end
-    session[:question_history] ||= [] # セッション履歴が存在しない場合に初期化
+    session[:post_history] ||= [] # セッション履歴が存在しない場合に初期化
 
-    question_history = session[:question_history]
-    @question_number = question_history.size
+    post_history = session[:post_history]
+    @post_number = post_history.size
     puts "Session ID: #{session.id}"
-    puts "質問履歴: #{question_history.inspect}"
+    
   end
 
   private
 
-  def select_random_question(question_history)
+  def select_random_post(post_history)
     # 履歴に含まれていない質問をランダムに選択
-    available_questions = Question.where.not(id: question_history)
-    if available_questions.empty?
+    available_posts = Post.where.not(id: post_history)
+    if available_posts.empty?
       # 履歴に含まれている質問がすべて表示された場合、履歴をクリア
-      question_history.clear
-      available_questions = Question.all # すべての質問を再び利用可能な質問として設定
+      post_history.clear
+      available_posts = Post.all # すべての質問を再び利用可能な質問として設定
     end
-    selected_question = available_questions.order('RANDOM()').first
+    selected_post = available_posts.order('RANDOM()').first
     # 選択した質問がnilでないか確認.使用可能な質問がない場合は、全質問の中からランダムに選択
-    selected_question || Question.order('RANDOM()').first
+    selected_post || Post.order('RANDOM()').first
   end
   
   def initialize_session
-    session[:question_history] ||= []
+    session[:post_history] ||= []
   end  
 
   def find_question
-    @question = current_user.questions.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def question_params

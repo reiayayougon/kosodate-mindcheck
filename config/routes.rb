@@ -20,11 +20,11 @@ Rails.application.routes.draw do
     member do
       get 'channel'
     end
+    resources :answers, only: %i[create]
   end
   resources :questions, only: %i[index new create show] do
     get 'random', on: :collection, to: 'questions#random'
     get 'start', on: :collection, to: 'questions#start'
-    resources :answers, only: %i[create]
   end
   resources :albums
   mount ActionCable.server => '/cable'

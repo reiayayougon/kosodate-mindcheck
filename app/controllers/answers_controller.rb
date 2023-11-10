@@ -2,9 +2,9 @@ class AnswersController < ApplicationController
   
   def create
     @answered_count = session[:answered_count] || 0
-    @question = Question.find(params[:question_id])
+    @post = Post.find(params[:post_id])
     @user = current_user
-    @answer = @question.answers.build(answer_params)
+    @answer = @post.answers.build(answer_params)
     @answer.user = @user
     @answer.save
     puts "回答数: #{session[:answered_count]}" 
