@@ -12,7 +12,16 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :name, presence: true
     validates :introduction, length: { maximum: 655 }
-
+    
+    scope :most_user, -> {
+        joins(posts: :answers)
+            .select("users.name")
+            .where("answers.answer_select = '0'")
+            .group('users.name')
+            .order("COUNT(posts.user_id) DESC")
+            .first
+    }
+    
     class << self
         def find_or_create_from_auth_hash(auth_hash)
             user_params = user_params_from_auth_hash(auth_hash)
@@ -49,7 +58,7 @@ class User < ApplicationRecord
     end
 
     def calculate_status
-        puts "status before save: #{status}"
+        self.status =  0 + answers.yes_count
         save!
     end
 
