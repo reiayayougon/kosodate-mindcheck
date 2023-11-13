@@ -83,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_10_004656) do
   end
 
   add_foreign_key "albums", "users"
-  add_foreign_key "answers", "posts"
   add_foreign_key "answers", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"

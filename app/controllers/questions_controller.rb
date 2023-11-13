@@ -10,7 +10,8 @@ class QuestionsController < ApplicationController
     puts "質問履歴: #{post_history.inspect}"
     @user = current_user
     current_user.calculate_status
-    @user_with_most_yes_answers = Post.user_with_most_yes_answers.first
+    @most_user = User.most_user.name
+    @user_info = User.find_by(name: @most_user)
   end
 
   def edit; end
