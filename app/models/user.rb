@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
     mount_uploader :avatar, AvatarUploader
     
-    validates :status, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+    validates :status, numericality: { greater_than_or_equal_to: 0 }
     validates :email, presence: true
     validates :name, presence: true
     validates :introduction, length: { maximum: 655 }
