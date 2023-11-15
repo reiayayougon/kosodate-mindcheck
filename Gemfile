@@ -109,3 +109,7 @@ gem 'dotenv-rails'
 
 #言語
 gem 'rails-i18n'
+
+#サイトマップ
+gem 'sitemap_generator'
+gem 'whenever'
