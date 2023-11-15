@@ -113,3 +113,6 @@ gem 'rails-i18n'
 #サイトマップ
 gem 'sitemap_generator'
 gem 'whenever'
+
+#メタタグ
+gem 'meta-tags'
