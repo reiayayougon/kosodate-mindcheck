@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= display_meta_tags(default_meta_tags) %>
     <title>子育てマッチング</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-visit-control" content="reload">
@@ -17,7 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <%= turbo_include_tags %>
-
+    <%= display_meta_tags(default_meta_tags) %>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1NWSGZLB5"></script>
     <script>
@@ -26,6 +26,7 @@
       gtag('js', new Date());
       gtag('config', 'G-G1NWSGZLB5');
     </script>
+    
   </head>
 
   <body class="flex-grow overflow-y-auto">
