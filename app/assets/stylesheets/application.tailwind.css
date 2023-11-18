@@ -128,3 +128,56 @@
 .channel {
     background-image: image-url('channel_01.png');
 }
+
+/*アルバムスライド*/
+
+.swiper-container img{
+    width: 680px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.swiper-container {
+    width: 100%; 
+    max-width: 300px;
+    overflow: hidden;
+    
+    
+    
+    @media (max-width: 640px) {
+        width: 100%;
+        max-width: 300px;
+        overflow: hidden;
+    }
+
+    &.slider {
+        height: 80vh;
+        margin-top: 60%;
+    }
+
+    &.slider-thumbnail {
+        height: 20vh;
+        
+
+        .swiper-wrapper {
+            .swiper-slide {
+                width: 20%;
+                height: 100%;
+                opacity: .5;
+                transition: opacity .5s;
+
+                &.swiper-slide-thumb-active {
+                    opacity: 1; /*hover*/
+                }
+            }
+        }
+        @media (max-width: 640px) {
+            .swiper-wrapper {
+                .swiper-slide {
+                    width: 25%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

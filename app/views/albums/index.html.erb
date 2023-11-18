@@ -1,13 +1,33 @@
-<div style="display: flex; align-items: center;">
-    <%=image_tag 'kids.png' %>
-</div>
-    <%= turbo_frame_tag "album-list" do %>
-        <div class="bg-white">
-            <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-                    <%= render @albums %>
+<div style="background-image: url('<%= asset_path('album2.png') %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <!-- スライダー -->
+    <div class="flex items-center justify-center" >
+        <div data-controller="albumslider" >
+            <div class="swiper" data-albumslider-target="slider">
+                <div class="swiper-container slider">    
+                    <div class="swiper-wrapper">
+                        <% @albums.each do |album| %>
+                            <div class="swiper-slide">
+                                <%= link_to image_tag(album.album_image.url), album_path(album), data: { turbo_frame: "modal"}, class: "rounded-lg" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+                    <!-- サムネイル -->
+            <div class="swiper-container slider-thumbnail" data-albumslider-target="sliderThumbnail">
+                <div class="swiper-wrapper">
+                    <% @albums.each do |album| %>
+                        <div class="swiper-slide overflow-x-auto">
+                            <%= image_tag album.album_image.url, alt: "Album Thumbnail" %>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         </div>
-    <% end %>
+    </div>
+    <div class="flex items-center justify-center" >
+        <%= link_to new_album_path, data: { turbo_frame: "modal" }, class: "mr-2 w-20 h-30" do %>
+            <%= image_tag 'add.png', class: "mr-2 w-20 h-30 mt-8 mb-4" %>
+        <% end %>
+    </div>
 </div>
