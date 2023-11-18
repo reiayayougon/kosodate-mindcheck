@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AlbumsliderController from "./albumslider_controller"
+application.register("albumslider", AlbumsliderController)
+
 import CommentModalController from "./comment_modal_controller"
 application.register("comment-modal", CommentModalController)
 

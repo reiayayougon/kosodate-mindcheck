@@ -1,6 +1,6 @@
 class AlbumImageUploader < CarrierWave::Uploader::Base
     include CarrierWave::MiniMagick
-    process resize_to_limit: [1200, 1200]
+    process resize_to_limit: [500, 500]
 
     if Rails.env.production?
         include Cloudinary::CarrierWave
