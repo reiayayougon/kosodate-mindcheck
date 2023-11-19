@@ -18,7 +18,7 @@
                 <div class="swiper-wrapper">
                     <% @albums.each do |album| %>
                         <div class="swiper-slide overflow-x-auto">
-                            <%= image_tag album.album_image.url, alt: "Album Thumbnail" %>
+                            <%= image_tag image_path(album.album_image.url), alt: "Album Thumbnail" %>
                         </div>
                     <% end %>
                 </div>

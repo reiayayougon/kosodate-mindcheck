@@ -8,7 +8,7 @@
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div class="flex flex-col items-center py-10 "> 
                 <%= t('profiles.show.title') %>
-                <%= image_tag @user.avatar.url, class: 'rounded', size: '200x200' %>
+                <%= image_tag image_path(@user.avatar.url), class: 'rounded', size: '200x200' %>
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= @user.name%></h5>
                 <div class="ml-4 my-4">
                     <%= @user.introduction %>
