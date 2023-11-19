@@ -16,7 +16,7 @@
                     <%= f.label :avatar, User.human_attribute_name(:avatar), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                     <%= f.file_field :avatar, data: {"preview-target": "file", action: "preview#previewImage" }, accept: 'image/jpg,image/jpeg,image/gif,image/png' %>
                     <div class="mt-3 mb-3">
-                        <%= image_tag @user.avatar.url, "data-preview-target": "image", size: '200x200' %>
+                        <%= image_tag image_path(@user.avatar.url), "data-preview-target": "image", size: '200x200' %>
                     </div>
                 </div>
                 <div class="flex justify-center">
