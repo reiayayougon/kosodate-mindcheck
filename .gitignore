@@ -25,7 +25,6 @@ vendor/bundle
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-/config/cloudinary.yml
 /public/assets
 /public/uploads
 
