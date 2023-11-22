@@ -139,14 +139,13 @@
     
     
     @media (max-width: 640px) {
-        width: 100%;
-        max-width: 680px;
+        width: 50%;
+        max-width: 640px;
         overflow: hidden;
     }
 
     &.slider {
         height: 80vh;
-        margin-top: 20%;
         margin-left: 30%;
     }
 
