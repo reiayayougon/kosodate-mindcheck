@@ -129,34 +129,30 @@
     background-image: image-url('channel_01.png');
 }
 
+
 /*アルバムスライド*/
-
-.swiper-container img{
-    width: 680px;
-    height: 100%;
-    object-fit: contain;
-}
-
 .swiper-container {
     width: 100%; 
-    max-width: 300px;
+    max-width: 980px;
     overflow: hidden;
     
     
     
     @media (max-width: 640px) {
         width: 100%;
-        max-width: 300px;
+        max-width: 680px;
         overflow: hidden;
     }
 
     &.slider {
         height: 80vh;
-        margin-top: 60%;
+        margin-top: 20%;
+        margin-left: 30%;
     }
 
     &.slider-thumbnail {
         height: 20vh;
+        margin-bottom: 20%;
         
 
         .swiper-wrapper {

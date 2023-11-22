@@ -15,6 +15,7 @@ export default class extends Controller {
         });
         
         this.slider = new Swiper(this.element.querySelector(".slider"), {
+            centeredSlides: true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -28,7 +29,6 @@ export default class extends Controller {
             fadeEffect: {
                 crossFade: true,
             },
-            centeredSlides: true,
             autoplay: {
                 delay: 2000, 
                 disableOnInteraction: false, 

@@ -1,86 +1,47 @@
 <%= turbo_frame_tag "comment-list" do %> 
-    <!-- Table Section -->
-    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <!-- Card -->
-        <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
-                <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700 font">
-                        <!-- Header -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-                            <!-- Input -->
-                            <div class="sm:col-span-1 flex">
-                                <!--カテゴリー検索 -->
-                                <%= search_form_for @q, url: search_posts_path, class: "flex" do |f| %>
-                                    <div class="relative flex item-center">
-                                        <%= f.collection_select(:category_id_eq, Category.all, :id, :name, { include_blank: true }, { class: "py-2 px-3 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"}) %>
-                                        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
-                                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <%= f.submit t('.search_post'), class: "ml-3 bg-gray-300 hover:bg-gray-500 text-black font-bold py-2 px-4 rounded font" %>
-                                <% end %>
-                            </div>
-                            <div>
-                                <%= link_to t('.new_post'), new_post_path, data: { turbo_frame: "modal" }, class: "py-3 px-4 inline-flex justify-center items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
-                            </div>
-                        </div>
-                        <!-- End Input -->
-                        <!-- Table -->
-                        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                            <thead class="bg-gray-50 dark:bg-slate-800">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-left">
-                                        <div class="flex items-center gap-x-2">
-                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                共感度
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left">
-                                        <div class="flex items-center gap-x-2">
-                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                <%= t('activerecord.models.user') %>
-                                            </span>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left">
-                                        <div class="flex items-center gap-x-2 " >
-                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                <%= t('activerecord.models.post') %>
-                                            </span>
-                                            <%= image_tag 'channel_icon.png', class: "ml-2 w-20 h-20" %>
-                                        </div>
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-left">
-                                        <div class="flex items-center gap-x-2">
-                                            <span class="font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                <%= t('activerecord.models.category') %>
-                                            </span>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                                <% if @posts.present? %>
-                                    <%= render @posts %>
-                                <% else %>
-                                    <p><%= t('.no_result') %></p>  
-                                <% end %>
-                            </tbody>
-                        </table> 
-                        <!-- End Table -->
-                        <!-- Footer -->
-                        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
-                            <%= paginate @posts %> 
+    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto bg-green-50">          
+        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+            <div class="sm:col-span-1 flex">
+                <!--カテゴリー検索 -->
+                <%= search_form_for @q, url: search_posts_path, class: "flex" do |f| %>
+                    <div class="relative flex item-center">
+                        <%= f.collection_select(:category_id_eq, Category.all, :id, :name, { include_blank: true }, { class: "py-2 px-3 pl-11 block w-full border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"}) %>
+                        <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
+                            <svg class="h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
                         </div>
                     </div>
+                    <%= f.submit t('.search_post'), class: "ml-3 bg-gray-300 hover:bg-gray-500 text-black font-bold py-2 px-4 rounded font" %>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to t('.new_post'), new_post_path, data: { turbo_frame: "modal" }, class: "py-3 px-4 inline-flex justify-center items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font" %>
+            </div>
+        </div> 
+        <div class="flex items-center justify-center mt-4" >
+            <div class="cardslider">
+                <div data-controller="cardslider">
+                    <div class="swiper" data-cardslider-target="cardslider">  
+                        <div class="swiper-container cardslider">    
+                            <div class="swiper-wrapper">
+                                <% @posts.each do |post| %>
+                                    <div class="swiper-slide">
+                                        <%= render post %>
+                                    </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <%# <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+             %>
                 </div>
-            </div>         
+            </div>
         </div>
-        <!-- End Card -->
+        
+        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
+            <%= paginate @posts %> 
+        </div>
     </div>
-    <!-- End Table Section -->
 <% end %>
