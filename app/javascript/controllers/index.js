@@ -7,6 +7,9 @@ import { application } from "./application"
 import AlbumsliderController from "./albumslider_controller"
 application.register("albumslider", AlbumsliderController)
 
+import CardsliderController from "./cardslider_controller"
+application.register("cardslider", CardsliderController)
+
 import CommentModalController from "./comment_modal_controller"
 application.register("comment-modal", CommentModalController)
 

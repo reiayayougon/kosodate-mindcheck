@@ -56,13 +56,13 @@ class PostsController < ApplicationController
     if params[:q] && params[:q][:category_id_eq].present?
       @selected_category = Category.find(params[:q][:category_id_eq])
     end
-    @posts = @q.result(distinct: true).includes(:user, :category).order(created_at: :desc).page(params[:page]).per(5)
+    @posts = @q.result(distinct: true).includes(:user, :category).order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def category
     category_id = params[:category_id]
     @category = Category.find(category_id)
-    @posts = @category.posts.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+    @posts = @category.posts.includes(:user).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def channel
