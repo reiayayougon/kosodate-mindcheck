@@ -7,8 +7,8 @@ RSpec.describe "Albums", type: :system do
         context 'ログインしている場合' do
             before do
                 login_with_google
-                visit posts_path
-                click_link 'アルバム作成'
+                find('.dropdown-album').click
+                click_on 'アルバム作成'
             end
 
             it 'アルバムが作成できること' do
