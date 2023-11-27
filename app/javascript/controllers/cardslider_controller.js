@@ -7,14 +7,13 @@ export default class extends Controller {
 
   connect() {
     this.slider = new Swiper(this.element.querySelector(".cardslider"), {
-      slidesPerView: 2,
       loop: true,
       loopAdditionalSlides: 1,
-      speed: 8000,
-      spaceBetween: 5,
+      slidesPerView: 3,
+      spaceBetween: 10,
       allowTouchMove: false,
       autoplay: {
-        delay: 0,
+        delay: 3000,
         disableOnInteraction: false,
       },
       navigation: {

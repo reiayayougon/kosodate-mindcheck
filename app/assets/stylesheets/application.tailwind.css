@@ -138,11 +138,11 @@
     
     
     
-    @media (max-width: 640px) {
+    /* @media (max-width: 640px) {
         width: 50%;
         max-width: 640px;
         overflow: hidden;
-    }
+    } */
 
     &.slider {
         height: 80vh;
@@ -166,13 +166,17 @@
                 }
             }
         }
-        @media (max-width: 640px) {
+        /* @media (max-width: 640px) {
             .swiper-wrapper {
                 .swiper-slide {
                     width: 25%;
                     height: 100%;
                 }
             }
-        }
-    }
+        }*/
+    } 
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    display: none;
 }

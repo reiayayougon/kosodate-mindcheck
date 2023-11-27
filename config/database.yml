@@ -23,7 +23,8 @@ default: &default
 
 development:
   <<: *default
-  database: kosodate_mindcheck_development
+  database: <%= ENV['CYPRESS'] ? 'kosodate_mindcheck_test' : 'kosodate_mindcheck_development' %>
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
